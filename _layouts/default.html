@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'fr' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  {% include header.html %}
+
+  <main id="top" class="container">
+    {{ content }}
+
+    <footer class="footer">
+      <span>© <span id="y"></span> {{ site.data.profile.name }}</span>
+      <span class="muted">GitHub Pages • Jekyll</span>
+    </footer>
+  </main>
+
+  <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+</body>
+</html>

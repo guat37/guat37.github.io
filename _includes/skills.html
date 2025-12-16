@@ -1,0 +1,35 @@
+<section id="competences" class="section reveal">
+  <div class="section-head">
+    <h2>Compétences</h2>
+    <p>Lisible, moderne, sans “tableau Excel”.</p>
+  </div>
+
+  <div class="grid three">
+    <div class="card">
+      <h3>Tech</h3>
+      <div class="bars">
+        {% for s in site.data.profile.skills.tech %}
+          <div class="bar"><span>{{ s.name }}</span><i style="--v:{{ s.level }}%"></i></div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Outils</h3>
+      <div class="tags">
+        {% for t in site.data.profile.skills.tools %}
+          <span class="tag">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Soft skills</h3>
+      <ul class="check">
+        {% for s in site.data.profile.skills.soft %}
+          <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

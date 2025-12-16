@@ -1,0 +1,13 @@
+title: "Grégoire Legros"
+description: "Directeur de projet informatique — Systèmes, Réseaux, IAM/SSO"
+url: "https://moncv.deleg.fr"
+lang: "fr"
+
+markdown: kramdown
+permalink: pretty
+timezone: "Europe/Paris"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

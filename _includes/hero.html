@@ -1,0 +1,56 @@
+<section class="hero reveal">
+  <div class="hero-card">
+    <div class="kicker">CV • {{ site.data.profile.role }}</div>
+    <h1>{{ site.data.profile.name | split: ' ' | first }} <span class="grad">{{ site.data.profile.name | split: ' ' | slice: 1, 99 | join: ' ' }}</span></h1>
+    <p class="subtitle">{{ site.data.profile.tagline }}</p>
+
+    <div class="chips">
+      {% for h in site.data.profile.highlights %}
+        <span class="chip">{{ h }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn" href="#experience">Voir l’expérience</a>
+      <a class="btn ghost" href="#competences">Compétences</a>
+    </div>
+  </div>
+
+  <aside class="hero-side reveal">
+    <div class="profile">
+      <div class="avatar">
+        {% if site.static_files | where: "path", "/assets/img/avatar.jpg" | first %}
+          <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Photo de profil">
+        {% else %}
+          <div class="avatar-fallback">{{ site.data.profile.initials }}</div>
+        {% endif %}
+      </div>
+
+      <div class="profile-meta">
+        <div class="meta-row">
+          <span class="label">Localisation</span>
+          <span class="value">{{ site.data.profile.location }}</span>
+        </div>
+
+        <div class="meta-row">
+          <span class="label">Site</span>
+          <span class="value"><a href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener">{{ site.data.profile.website_label }}</a></span>
+        </div>
+
+        <div class="meta-row">
+          <span class="label">LinkedIn</span>
+          <span class="value"><a href="{{ site.data.profile.linkedin_url }}" target="_blank" rel="noopener">{{ site.data.profile.linkedin_label }}</a></span>
+        </div>
+      </div>
+
+      <div class="card mini">
+        <div class="mini-title">En bref</div>
+        <ul class="mini-list">
+          {% for h in site.data.profile.highlights %}
+            <li>{{ h }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </aside>
+</section>

@@ -1,0 +1,20 @@
+<section id="formation" class="section reveal">
+  <div class="section-head">
+    <h2>Formation</h2>
+    <p>Diplômes & certifications.</p>
+  </div>
+
+  <div class="grid two">
+    {% for e in site.data.profile.education %}
+      <div class="card">
+        <h3>{{ e.title }}</h3>
+        {% if e.period and e.period != "" %}
+          <p class="muted">{{ e.period }}{% if e.place and e.place != "" %} • {{ e.place }}{% endif %}</p>
+        {% endif %}
+        {% if e.details and e.details != "" %}
+          <p>{{ e.details }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

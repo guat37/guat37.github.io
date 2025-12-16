@@ -1,0 +1,31 @@
+<section id="contact" class="section reveal">
+  <div class="section-head">
+    <h2>Contact</h2>
+    <p>Simple et efficace.</p>
+  </div>
+
+  <div class="grid two">
+    <div class="card">
+      <h3>Me joindre</h3>
+      <div class="contact">
+        <a class="contact-row" href="mailto:{{ site.data.profile.email }}">
+          <span class="c-label">Email</span><span class="c-value">{{ site.data.profile.email }}</span>
+        </a>
+        <a class="contact-row" href="{{ site.data.profile.linkedin_url }}" target="_blank" rel="noopener">
+          <span class="c-label">LinkedIn</span><span class="c-value">{{ site.data.profile.linkedin_label }}</span>
+        </a>
+        <a class="contact-row" href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener">
+          <span class="c-label">Site</span><span class="c-value">{{ site.data.profile.website_label }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Pitch</h3>
+      <p>
+        Chef de projet technique avec une forte culture infra/sécurité. J’aime cadrer, simplifier, industrialiser et
+        livrer des environnements robustes (réseau, IAM, reverse-proxy, observabilité).
+      </p>
+    </div>
+  </div>
+</section>

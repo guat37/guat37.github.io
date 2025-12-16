@@ -1,0 +1,29 @@
+<section id="experience" class="section reveal">
+  <div class="section-head">
+    <h2>Expérience</h2>
+    <p>Chronologie claire, orientée résultats.</p>
+  </div>
+
+  <div class="timeline">
+    {% for job in site.data.profile.experience %}
+      <article class="t-item card">
+        <div class="t-top">
+          <div>
+            <h3>{{ job.title }}</h3>
+            <div class="muted">
+              {{ job.period }}{% if job.place and job.place != "" %} • {{ job.place }}{% endif %}
+            </div>
+          </div>
+          {% if job.pill and job.pill != "" %}
+            <span class="pill">{{ job.pill }}</span>
+          {% endif %}
+        </div>
+        <ul>
+          {% for b in job.bullets %}
+            <li>{{ b }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+    {% endfor %}
+  </div>
+</section>

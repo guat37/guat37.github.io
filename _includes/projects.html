@@ -1,0 +1,25 @@
+<section id="projets" class="section reveal">
+  <div class="section-head">
+    <h2>Projets</h2>
+    <p>Quelques réalisations (sélection).</p>
+  </div>
+
+  <div class="grid two">
+    {% for p in site.data.profile.projects %}
+      <article class="card">
+        <div class="t-top">
+          <h3>{{ p.name }}</h3>
+          {% if p.link_url and p.link_url != "" %}
+            <a class="pill ghost" href="{{ p.link_url }}" target="_blank" rel="noopener">{{ p.link_label | default: "Lien" }}</a>
+          {% endif %}
+        </div>
+        <p class="muted">{{ p.description }}</p>
+        <div class="tags">
+          {% for t in p.tags %}
+            <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

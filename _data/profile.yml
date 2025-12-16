@@ -1,0 +1,80 @@
+name: "Grégire Legros"
+initials: "GL"
+role: "Directeur de projet informatique"
+tagline: "Systèmes & Réseaux • IAM/SSO • Secteur santé"
+location: "France"
+email: "gregoirelegros@gmail.com"
+linkedin_label: "/prenomnom"
+linkedin_url: "https://www.linkedin.com/in/xxxx"
+website_label: "moncv.deleg.fr"
+website_url: "https://moncv.deleg.fr"
+pdf_url: "/cv.pdf"
+
+highlights:
+  - "Chef de projet depuis 2017 (projets techniques multi-établissements)"
+  - "Expertise : systèmes, réseaux, IAM/SSO, reverse-proxy, TLS"
+  - "Industrialisation, automatisation (O365/Power Automate), MCO/MCS"
+
+experience:
+  - title: "Directeur de projet technique — DSIE"
+    period: "2017 — Aujourd’hui"
+    place: "Secteur santé"
+    pill: "Infra / Réseaux"
+    bullets:
+      - "Pilotage de projets réseaux/sécurité (multi-sites), coordination MOA/MOE, prestataires."
+      - "Référent technique : architecture, standardisation, documentation, mise en production."
+      - "Interface étroite avec les équipes SSI (IAM, contrôle d’accès, conformité)."
+
+  - title: "Ingénieur de production — Systèmes & Réseaux"
+    period: "Avant 2017"
+    place: ""
+    pill: "MCO"
+    bullets:
+      - "Exploitation, supervision, gestion incidents/changements, amélioration continue."
+      - "Renforcement sécurité et qualité de service (disponibilité, performance, durcissement)."
+
+skills:
+  tech:
+    - name: "Réseaux"
+      level: 92
+    - name: "Systèmes"
+      level: 88
+    - name: "IAM / SSO"
+      level: 85
+    - name: "Reverse proxy / TLS"
+      level: 80
+  tools:
+    - "Nginx"
+    - "Docker / LXC"
+    - "O365 / Teams"
+    - "Power Automate"
+    - "Grafana / InfluxDB"
+    - "Active Directory"
+  soft:
+    - "Pilotage & coordination"
+    - "Communication claire"
+    - "Rigueur & sens du risque"
+    - "Orienté solution"
+    - "Documentation & transmission"
+
+education:
+  - title: "Diplôme / Formation"
+    period: "Année"
+    place: "École / Université"
+    details: "Option / spécialité, mention, etc."
+  - title: "Certifications"
+    period: ""
+    place: ""
+    details: "ITIL / Sécurité / Réseaux (à compléter)"
+
+projects:
+  - name: "Dashboard sécurité (Power BI)"
+    description: "Suivi score sécurité et vulnérabilités critiques avec KPI et visuels interactifs."
+    tags: ["Power BI", "Excel", "KPI"]
+    link_label: ""
+    link_url: ""
+  - name: "Automatisation relances (Power Automate)"
+    description: "Relances automatiques sur emails envoyés, purge, détection de réponse."
+    tags: ["O365", "Power Automate"]
+    link_label: ""
+    link_url: ""
