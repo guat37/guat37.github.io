@@ -8,5 +8,6 @@ title: "CV"
 {% include experience.html %}
 {% include skills.html %}
 {% include education.html %}
+{% include certifications.html %}
 {% include projects.html %}
 {% include contact.html %}
