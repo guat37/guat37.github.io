@@ -1,0 +1,18 @@
+{% comment %} Inline SVG icons (lightweight, crisp) {% endcomment %}
+{% assign name = include.name | downcase %}
+
+{% if name == "linkedin" %}
+<svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+  <path fill="currentColor" d="M6.94 6.5A2.44 2.44 0 1 1 7 1.62a2.44 2.44 0 0 1-.06 4.88ZM2.5 22h4.9V7.9H2.5V22Zm7.4-14.1V22h4.9v-7.8c0-2 .4-3.9 2.9-3.9 2.4 0 2.4 2.2 2.4 4V22H22v-8.7c0-4.3-.9-7.6-6-7.6-2.4 0-4 1.3-4.6 2.5h-.1V7.9H9.9Z"/>
+</svg>
+
+{% elsif name == "mail" %}
+<svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+  <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
+</svg>
+
+{% elsif name == "globe" %}
+<svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+  <path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm7.9 9H16.7c-.2-2.3-1-4.4-2.1-6 2.6.9 4.6 3.2 5.3 6ZM12 4.1c1.3 1.6 2.2 4 2.5 6.9H9.5c.3-2.9 1.2-5.3 2.5-6.9ZM4.1 13h3.2c.2 2.3 1 4.4 2.1 6-2.6-.9-4.6-3.2-5.3-6Zm3.2-2H4.1c.7-2.8 2.7-5.1 5.3-6-1.1 1.6-1.9 3.7-2.1 6ZM12 19.9c-1.3-1.6-2.2-4-2.5-6.9h5c-.3 2.9-1.2 5.3-2.5 6.9Zm2.6-.9c1.1-1.6 1.9-3.7 2.1-6h3.2c-.7 2.8-2.7 5.1-5.3 6Z"/>
+</svg>
+{% endif %}

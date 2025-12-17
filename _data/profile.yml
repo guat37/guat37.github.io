@@ -78,3 +78,11 @@ projects:
     tags: ["O365", "Power Automate"]
     link_label: ""
     link_url: ""
+
+certifications:
+  - name: "MCSE"
+    org: "Microsoft"
+    img: "/assets/img/certs/mcse.png"
+  - name: "SecuCyber"
+    org: "HS2"
+    img: "/assets/img/certs/secucyber.jpg"

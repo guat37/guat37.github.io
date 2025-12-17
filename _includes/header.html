@@ -11,9 +11,18 @@
   </nav>
 
   <div class="actions">
-    <a class="btn ghost" href="#contact">Me contacter</a>
+    <a class="iconbtn" href="{{ site.data.profile.linkedin_url }}" target="_blank" rel="noopener" title="LinkedIn">
+      {% include icons.html name="linkedin" %}
+    </a>
+    <a class="iconbtn" href="mailto:{{ site.data.profile.email }}" title="Email">
+      {% include icons.html name="mail" %}
+    </a>
+    <a class="iconbtn" href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener" title="Site">
+      {% include icons.html name="globe" %}
+    </a>
     {% if site.data.profile.pdf_url and site.data.profile.pdf_url != "" %}
-      <a class="btn" href="{{ site.data.profile.pdf_url | relative_url }}" target="_blank" rel="noopener">Télécharger PDF</a>
+      <a class="btn" href="{{ site.data.profile.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
     {% endif %}
   </div>
+   
 </header>
