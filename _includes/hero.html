@@ -9,7 +9,15 @@
         <span class="chip">{{ h }}</span>
       {% endfor %}
     </div>
-
+  {% if site.data.profile.certifications and site.data.profile.certifications.size > 0 %}
+    <div class="badge-row">
+      {% for c in site.data.profile.certifications limit:4 %}
+        <div class="badge-mini" title="{{ c.name }}">
+          <img src="{{ c.img | relative_url }}" alt="{{ c.name }}">
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
     <div class="hero-cta">
       <a class="btn" href="#experience">Voir l’expérience</a>
       <a class="btn ghost" href="#competences">Compétences</a>

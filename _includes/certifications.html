@@ -1,23 +1,24 @@
+{% if site.data.profile.certifications and site.data.profile.certifications.size > 0 %}
 <section id="certifs" class="section reveal">
-    <div class="section-head">
-      <h2>Certifications</h2>
-      <p>Badges & formations clés.</p>
-    </div>
-  
-    <div class="certs">
-      {% for c in site.data.profile.certifications %}
-        <div class="cert card">
-          <div class="cert-logo">
-            <img src="{{ c.img | relative_url }}" alt="Logo {{ c.name }}">
-          </div>
-          <div class="cert-meta">
-            <div class="cert-name">{{ c.name }}</div>
-            {% if c.org and c.org != "" %}
-              <div class="muted">{{ c.org }}</div>
-            {% endif %}
-          </div>
+  <div class="section-head">
+    <h2>Certifications</h2>
+    <p>Badges (sélection).</p>
+  </div>
+
+  <div class="certs">
+    {% for c in site.data.profile.certifications %}
+      <article class="cert-tile card">
+        <div class="cert-media">
+          <img src="{{ c.img | relative_url }}" alt="Badge {{ c.name }}">
         </div>
-      {% endfor %}
-    </div>
-  </section>
-  
+        <div class="cert-caption">
+          <div class="cert-name">{{ c.name }}</div>
+          {% if c.org and c.org != "" %}
+            <div class="muted">{{ c.org }}</div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

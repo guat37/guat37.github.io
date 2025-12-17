@@ -62,10 +62,6 @@ education:
     period: "Année"
     place: "École / Université"
     details: "Option / spécialité, mention, etc."
-  - title: "Certifications"
-    period: ""
-    place: ""
-    details: "ITIL / Sécurité / Réseaux (à compléter)"
 
 projects:
   - name: "Dashboard sécurité (Power BI)"
