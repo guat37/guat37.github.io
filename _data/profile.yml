@@ -14,10 +14,10 @@ highlights:
   - "Industrialisation, automatisation (O365/Power Automate), MCO/MCS"
 
 experience:
-  - title: "Directeur de projet technique — DSIE"
+  - title: "Directeur de projet informatique"
     period: "2017 — Aujourd’hui"
     place: "Secteur santé"
-    pill: "Infra / Réseaux"
+    pill: "Infra / Systèmes / Réseaux"
     bullets:
       - "Pilotage de projets réseaux/sécurité (multi-sites), coordination MOA/MOE, prestataires."
       - "Référent technique : architecture, standardisation, documentation, mise en production."
@@ -36,10 +36,10 @@ skills:
     - name: "Réseaux"
       level: 92
     - name: "Systèmes"
-      level: 88
+      level: 95
     - name: "IAM / SSO"
       level: 85
-    - name: "Reverse proxy / TLS"
+    - name: "Intéropérabilité"
       level: 80
   tools:
     - "Windows"
@@ -49,6 +49,7 @@ skills:
     - "O365 / Teams"
     - "Power Automate"
     - "Active Directory"
+    - "VMWare"
   soft:
     - "Pilotage & coordination"
     - "Communication claire"
@@ -68,12 +69,16 @@ education:
 
 projects:
   - name: "Pilotage du programme CaRE"
+    image: "/assets/img/projects/care.png"
+    meta: "KPI • Vulnérabilités • Trends"
     description: "Pilotage du programme pour les entités du groupes (18 établissements), mise en conformité de la sécurité informatique et enseignement des bonnes pratiques."
     tags: ["ANS", "Cybersécurité", "KPI"]
     link_label: ""
     link_url: ""
   - name: "Construction d'un établissement de santé"
-    description: "Définition de l'architecture informatique du site, Comprendre les besoins métiers pour les traduire techniquement sur le terrain. Auditer et valider la prise en compte des besoins par la MOE."
+    image: "/assets/img/projects/lv.jpg"
+    meta: "460 lits • 35 000 m²"
+    description: "Pilotage de la définition de l’architecture informatique d’un établissement multi-activités de 460 lits et 35 000 m², incluant l’analyse des besoins métiers, leur traduction technique et la validation des livrables de la maîtrise d’œuvre. Garantie du maintien en condition opérationnelle du système d’information pendant les phases de travaux et de transition."
     tags: ["Archi", "Santé"]
     link_label: ""
     link_url: ""
