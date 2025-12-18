@@ -323,3 +323,28 @@ ul li{margin:8px 0}
   display:block;
   opacity:.95;
 }
+.avatar.avatar-lg{
+  width:100%;
+  height: 320px;
+  border-radius: 22px;
+}
+
+.avatar.avatar-lg img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* mini bloc contact avec icônes */
+.mini-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+/* sur mobile, photo moins haute */
+@media (max-width: 980px){
+  .avatar.avatar-lg{ height: 240px; }
+}

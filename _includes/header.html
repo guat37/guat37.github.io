@@ -17,9 +17,6 @@
     <a class="iconbtn" href="mailto:{{ site.data.profile.email }}" title="Email">
       {% include icons.html name="mail" %}
     </a>
-    <a class="iconbtn" href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener" title="Site">
-      {% include icons.html name="globe" %}
-    </a>
     {% if site.data.profile.pdf_url and site.data.profile.pdf_url != "" %}
       <a class="btn" href="{{ site.data.profile.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
     {% endif %}

@@ -26,38 +26,23 @@
 
   <aside class="hero-side reveal">
     <div class="profile">
-      <div class="avatar">
-        {% if site.static_files | where: "path", "/assets/img/avatar.jpg" | first %}
-          <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Photo de profil">
-        {% else %}
-          <div class="avatar-fallback">{{ site.data.profile.initials }}</div>
-        {% endif %}
-      </div>
-
-      <div class="profile-meta">
-        <div class="meta-row">
-          <span class="label">Localisation</span>
-          <span class="value">{{ site.data.profile.location }}</span>
-        </div>
-
-        <div class="meta-row">
-          <span class="label">Site</span>
-          <span class="value"><a href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener">{{ site.data.profile.website_label }}</a></span>
-        </div>
-
-        <div class="meta-row">
-          <span class="label">LinkedIn</span>
-          <span class="value"><a href="{{ site.data.profile.linkedin_url }}" target="_blank" rel="noopener">{{ site.data.profile.linkedin_label }}</a></span>
-        </div>
+      <div class="avatar avatar-lg">
+        <img src="{{ '/assets/img/avatar.jpg' | relative_url }}" alt="Photo de profil">
       </div>
 
       <div class="card mini">
-        <div class="mini-title">En bref</div>
-        <ul class="mini-list">
-          {% for h in site.data.profile.highlights %}
-            <li>{{ h }}</li>
-          {% endfor %}
-        </ul>
+        <div class="mini-title">Contact</div>
+        <div class="mini-actions">
+          <a class="iconbtn" href="mailto:{{ site.data.profile.email }}" title="Email">
+            {% include icons.html name="mail" %}
+          </a>
+          <a class="iconbtn" href="{{ site.data.profile.linkedin_url }}" target="_blank" rel="noopener" title="LinkedIn">
+            {% include icons.html name="linkedin" %}
+          </a>
+          <a class="iconbtn" href="{{ site.data.profile.website_url }}" target="_blank" rel="noopener" title="Site">
+            {% include icons.html name="globe" %}
+          </a>
+        </div>
       </div>
     </div>
   </aside>

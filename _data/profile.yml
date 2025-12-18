@@ -6,8 +6,6 @@ location: "France"
 email: "gregoirelegros@gmail.com"
 linkedin_label: "/glegros37"
 linkedin_url: "https://www.linkedin.com/in/glegros37"
-website_label: "moncv.deleg.fr"
-website_url: "https://moncv.deleg.fr"
 pdf_url: "/cv.pdf"
 
 highlights:
@@ -44,11 +42,12 @@ skills:
     - name: "Reverse proxy / TLS"
       level: 80
   tools:
+    - "Windows"
+    - "Linux"
     - "Nginx"
     - "Docker / LXC"
     - "O365 / Teams"
     - "Power Automate"
-    - "Grafana / InfluxDB"
     - "Active Directory"
   soft:
     - "Pilotage & coordination"
@@ -58,20 +57,24 @@ skills:
     - "Documentation & transmission"
 
 education:
-  - title: "Diplôme / Formation"
-    period: "Année"
-    place: "École / Université"
-    details: "Option / spécialité, mention, etc."
+  - title: "Spécialiste Système et Réseaux"
+    period: "2003"
+    place: "ENI École informatique"
+    details: "Spécialiste Système et Réseaux"
+  - title: "BTS Informatique de gestion"
+    period: "2001-2003"
+    place: "Lycée Paul-Louis Courier de Tours"
+    details: "Système et Réseaux"
 
 projects:
-  - name: "Dashboard sécurité (Power BI)"
-    description: "Suivi score sécurité et vulnérabilités critiques avec KPI et visuels interactifs."
-    tags: ["Power BI", "Excel", "KPI"]
+  - name: "Pilotage du programme CaRE"
+    description: "Pilotage du programme pour les entités du groupes (18 établissements), mise en conformité de la sécurité informatique et enseignement des bonnes pratiques."
+    tags: ["ANS", "Cybersécurité", "KPI"]
     link_label: ""
     link_url: ""
-  - name: "Automatisation relances (Power Automate)"
-    description: "Relances automatiques sur emails envoyés, purge, détection de réponse."
-    tags: ["O365", "Power Automate"]
+  - name: "Construction d'un établissement de santé"
+    description: "Définition de l'architecture informatique du site, pilotage du lot courant faible pour le compte de la MOA en respect des besoins métiers."
+    tags: ["Archi", "Santé"]
     link_label: ""
     link_url: ""
 
