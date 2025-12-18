@@ -9,7 +9,7 @@ linkedin_url: "https://www.linkedin.com/in/glegros37"
 pdf_url: "/cv.pdf"
 
 highlights:
-  - "Chef de projet depuis 2017 (projets techniques multi-établissements)"
+  - "Directeur de projet depuis 2017 (projets techniques multi-établissements)"
   - "Expertise : systèmes, réseaux, IAM/SSO, reverse-proxy, TLS"
   - "Industrialisation, automatisation (O365/Power Automate), MCO/MCS"
 
@@ -25,7 +25,7 @@ experience:
 
   - title: "Ingénieur de production — Systèmes & Réseaux"
     period: "Avant 2017"
-    place: ""
+    place: "Secteur santé"
     pill: "MCO"
     bullets:
       - "Exploitation, supervision, gestion incidents/changements, amélioration continue."

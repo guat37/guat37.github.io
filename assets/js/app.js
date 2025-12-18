@@ -8,3 +8,9 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 els.forEach(el => io.observe(el));
+
+document.querySelectorAll(".bar[data-level]").forEach(b => {
+  const v = b.getAttribute("data-level");
+  const i = b.querySelector("i");
+  if (i && v) i.style.setProperty("--v", `${v}%`);
+});

@@ -1,7 +1,7 @@
 <section id="competences" class="section reveal">
   <div class="section-head">
     <h2>Compétences</h2>
-    <p>Lisible, moderne, sans “tableau Excel”.</p>
+    <p></p>
   </div>
 
   <div class="grid three">
@@ -9,7 +9,7 @@
       <h3>Tech</h3>
       <div class="bars">
         {% for s in site.data.profile.skills.tech %}
-          <div class="bar"><span>{{ s.name }}</span><i style="--v:{{ s.level }}%"></i></div>
+          <div class="bar" data-level="{{ s.level }}"><span>{{ s.name }}</span><i></i></div>
         {% endfor %}
       </div>
     </div>
