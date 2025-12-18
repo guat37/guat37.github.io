@@ -73,7 +73,7 @@ projects:
     link_label: ""
     link_url: ""
   - name: "Construction d'un établissement de santé"
-    description: "Définition de l'architecture informatique du site, pilotage du lot courant faible pour le compte de la MOA en respect des besoins métiers."
+    description: "Définition de l'architecture informatique du site, Comprendre les besoins métiers pour les traduire techniquement sur le terrain. Auditer et valider la prise en compte des besoins par la MOE."
     tags: ["Archi", "Santé"]
     link_label: ""
     link_url: ""
