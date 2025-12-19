@@ -169,3 +169,28 @@ body.print{
 @media print{
   .print-page{ margin: 0; }
 }
+/* --- HARD OVERRIDES POUR ÉVITER QUE LA PHOTO EXPLOSE --- */
+.print-page .avatar,
+.print-page .avatar-lg,
+.print-page .avatar.avatar-lg{
+  display:none !important;  /* on neutralise les classes web si elles apparaissent */
+}
+
+.print-page .avatar-mini{
+  width: 28mm !important;
+  height: 28mm !important;
+  border-radius: 10mm !important;
+  overflow:hidden !important;
+  margin: 0 0 6mm !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+.print-page .avatar-mini img{
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display:block !important;
+}
