@@ -1,0 +1,48 @@
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  header, footer, .topbar {
+    display: none !important;
+  }
+
+  .container {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100%;
+  }
+
+  .card {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .project-thumb,
+  .avatar-lg {
+    display: none;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .muted {
+    color: #444 !important;
+  }
+
+  .bars i::after {
+    background: black !important;
+  }
+
+  .tags .tag {
+    background: #eee !important;
+    color: #222 !important;
+  }
+}
+@media print {
+  @page { size: A4 portrait; margin: 15mm; }
+}
