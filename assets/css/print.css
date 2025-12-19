@@ -1,5 +1,5 @@
 /* assets/css/print.css */
-@page { size: A4; margin: 0; }
+@page { size: A4; margin: 3mm; }
 
 :root{
   --accent: #2563eb;      /* change ici la couleur principale */
@@ -32,7 +32,7 @@ body.print{
 .sidebar{
   background: linear-gradient(180deg, var(--accent), #1e293b);
   color: var(--sidebarText);
-  padding: 10mm 9mm;
+  padding: 10mm 9mm 10mm 11mm; /* +2mm à gauche */
 }
 
 /* Photo mini */
