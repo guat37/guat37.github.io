@@ -1,48 +1,63 @@
 @media print {
-  body {
-    background: white !important;
-    color: black !important;
-    font-size: 12pt;
-  }
+  @page { size: A4; margin: 10mm; }
+  html, body { height:auto; }
 
-  header, footer, .topbar {
-    display: none !important;
+  /* reset look */
+  body{
+    background:#fff !important;
+    color:#000 !important;
+    font-size: 10.5pt;
+    line-height: 1.25;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+  .bg, .topbar, .footer { display:none !important; }
 
-  .container {
+  /* container compact */
+  .container{
     padding: 0 !important;
-    margin: 0 auto !important;
-    width: 100%;
+    margin: 0 !important;
+    max-width: none !important;
   }
 
-  .card {
-    border: none !important;
+  /* remove card styling */
+  .card, .hero-card, .profile{
+    box-shadow:none !important;
+    border: 0 !important;
     background: transparent !important;
-    box-shadow: none !important;
+    padding: 0 !important;
   }
 
-  .project-thumb,
-  .avatar-lg {
-    display: none;
-  }
+  /* kill animations */
+  *{ animation:none !important; transition:none !important; }
+  .reveal{ opacity:1 !important; transform:none !important; }
 
-  .section {
-    page-break-inside: avoid;
-  }
+  /* single column everywhere */
+  .hero{ grid-template-columns: 1fr !important; }
+  .hero-side{ display:none !important; }  /* enlève photo + colonne droite */
+  .grid.two, .grid.three{ grid-template-columns: 1fr !important; }
 
-  .muted {
-    color: #444 !important;
-  }
+  /* tighten spacing */
+  .section{ margin-top: 10px !important; }
+  .section-head{ margin: 8px 0 6px !important; }
+  h1{ font-size: 20pt !important; margin: 0 0 4px !important; }
+  h2{ font-size: 13pt !important; margin: 0 !important; }
+  h3{ font-size: 11.5pt !important; margin: 0 0 4px !important; }
+  .subtitle{ margin: 0 0 6px !important; }
+  .kicker{ margin: 0 0 2px !important; }
 
-  .bars i::after {
-    background: black !important;
-  }
+  /* remove “web-only” elements that explode pages */
+  .chips, .tag, .tags, .project-thumb { display:none !important; } /* tu peux réactiver tags si tu veux */
+  ul{ margin: 4px 0 0 !important; }
+  ul li{ margin: 2px 0 !important; }
 
-  .tags .tag {
-    background: #eee !important;
-    color: #222 !important;
-  }
-}
-@media print {
-  @page { size: A4 portrait; margin: 15mm; }
+  /* bars become simple text (compact) */
+  .bars i, .bars i::after{ display:none !important; }
+  .bar{ display:flex !important; justify-content:space-between; gap:10px; }
+  .bar span{ color:#000 !important; font-weight:600; }
+  .muted{ color:#333 !important; }
+
+  /* page breaks: avoid ugly splits */
+  .section, .t-item, .card{ break-inside: avoid-page; page-break-inside: avoid; }
+  h2, h3{ break-after: avoid-page; page-break-after: avoid; }
 }
