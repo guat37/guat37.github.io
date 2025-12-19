@@ -6,6 +6,11 @@ permalink: /print/
 <div class="print-page">
 
   <aside class="sidebar">
+
+    <div class="avatar-mini">
+      <img src="{{ '/assets/img/avatar.png' | relative_url }}" alt="Photo">
+    </div>
+
     <h1 class="name">{{ site.data.profile.name }}</h1>
     <div class="role">{{ site.data.profile.role }}</div>
     <div class="tagline">{{ site.data.profile.tagline }}</div>
@@ -13,16 +18,22 @@ permalink: /print/
     <div class="side-section">
       <div class="side-title">Contact</div>
       <ul class="side-list">
-        <li>{{ site.data.profile.email }}</li>
+        <li>
+          <span style="display:inline-flex;align-items:center;gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
+            </svg>
+            {{ site.data.profile.email }}
+          </span>
+        </li>
         <li>{{ site.data.profile.website_label }}</li>
-        <li>{{ site.data.profile.linkedin_label }}</li>
       </ul>
     </div>
 
     <div class="side-section">
       <div class="side-title">Compétences</div>
       <ul class="side-list">
-        {% for s in site.data.profile.skills.tech %}
+        {% for s in site.data.profile.skills.tech limit:6 %}
           <li>{{ s.name }}</li>
         {% endfor %}
       </ul>
@@ -31,7 +42,7 @@ permalink: /print/
     <div class="side-section">
       <div class="side-title">Outils</div>
       <ul class="side-list">
-        {% for t in site.data.profile.skills.tools %}
+        {% for t in site.data.profile.skills.tools limit:7 %}
           <li>{{ t }}</li>
         {% endfor %}
       </ul>
@@ -40,17 +51,18 @@ permalink: /print/
     {% if site.data.profile.certifications and site.data.profile.certifications.size > 0 %}
     <div class="side-section">
       <div class="side-title">Certifications</div>
-      <div class="badges">
-        {% for c in site.data.profile.certifications %}
-          <div class="badge">{{ c.name }}</div>
+      <ul class="side-list">
+        {% for c in site.data.profile.certifications limit:3 %}
+          <li>{{ c.name }}</li>
         {% endfor %}
-      </div>
+      </ul>
     </div>
     {% endif %}
 
   </aside>
 
   <section class="content">
+
     <div class="block">
       <div class="h2">Profil</div>
       <p class="p">
@@ -71,7 +83,7 @@ permalink: /print/
           <p class="item-meta">{{ job.period }}{% if job.place and job.place != "" %} • {{ job.place }}{% endif %}</p>
           {% if job.bullets %}
             <ul class="bullets">
-              {% for b in job.bullets %}
+              {% for b in job.bullets limit:3 %}
                 <li>{{ b }}</li>
               {% endfor %}
             </ul>
@@ -83,19 +95,12 @@ permalink: /print/
 
     <div class="block">
       <div class="h2">Projets</div>
-      {% for p in site.data.profile.projects %}
+      {% for p in site.data.profile.projects limit:2 %}
         <div class="item">
           <p class="item-title">{{ p.name }}{% if p.meta and p.meta != "" %} — {{ p.meta }}{% endif %}</p>
           <ul class="bullets">
             <li>{{ p.description }}</li>
           </ul>
-          {% if p.tags %}
-            <div class="tags">
-              {% for t in p.tags %}
-                <span class="tag">{{ t }}</span>
-              {% endfor %}
-            </div>
-          {% endif %}
         </div>
       {% endfor %}
       <div class="hr"></div>
@@ -103,7 +108,7 @@ permalink: /print/
 
     <div class="block">
       <div class="h2">Formation</div>
-      {% for e in site.data.profile.education %}
+      {% for e in site.data.profile.education limit:2 %}
         <div class="item">
           <p class="item-title">{{ e.title }}</p>
           <p class="item-meta">
@@ -116,6 +121,7 @@ permalink: /print/
         </div>
       {% endfor %}
     </div>
+
   </section>
 
 </div>
