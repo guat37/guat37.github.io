@@ -74,11 +74,15 @@ body.print{
 
 .side-section{ margin-top: 8mm; }
 .side-title{
-  font-size: 9pt;
-  letter-spacing: .12em;
+  font-size: 9.5pt;
+  font-weight: 800;
   text-transform: uppercase;
-  opacity: .9;
-  margin: 0 0 5px;
+  letter-spacing: .08em;
+  margin: 0 0 6px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255,255,255,.35);
+  width: 100%;
+  display: block;
 }
 .side-list{
   margin: 0;
