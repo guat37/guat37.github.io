@@ -1,0 +1,25 @@
+---
+layout: default
+title: "CV (print)"
+permalink: /print/
+---
+
+<style>
+@media screen { .topbar, .footer { display:none !important; } }
+@media print {
+  @page { size: A4; margin: 14mm; }
+  .topbar, .footer, .btn, .bg { display:none !important; }
+  body { background:#fff !important; color:#000 !important; }
+  .card { box-shadow:none !important; border:none !important; background:transparent !important; }
+  .muted { color:#333 !important; }
+  .project-thumb, .avatar.avatar-lg { display:none !important; }
+}
+</style>
+
+{% include hero.html %}
+{% include highlights.html %}
+{% include experience.html %}
+{% include skills.html %}
+{% include education.html %}
+{% include projects.html %}
+{% include contact.html %}

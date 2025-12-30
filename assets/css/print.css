@@ -1,0 +1,196 @@
+/* assets/css/print.css */
+@page { size: A4; margin: 3mm; }
+
+:root{
+  --accent: #2563eb;      /* change ici la couleur principale */
+  --text: #111827;
+  --muted:#4b5563;
+  --paper:#ffffff;
+  --sidebarText:#e5e7eb;
+}
+
+body.print{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.25;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Page A4 en grille (sidebar + contenu) */
+.print-page{
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 68mm 1fr; /* sidebar un peu étroite pour gagner de la place */
+}
+
+/* SIDEBAR */
+.sidebar{
+  background: linear-gradient(180deg, var(--accent), #1e293b);
+  color: var(--sidebarText);
+  padding: 10mm 9mm 10mm 11mm; /* +2mm à gauche */
+}
+
+/* Photo mini */
+.avatar-mini{
+  width: 32mm;
+  height: 32mm;
+  border-radius: 12mm;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.10);
+  overflow: hidden;
+  margin: 0 0 8mm;
+}
+.avatar-mini img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Titre/infos */
+.name{
+  font-size: 18pt;
+  line-height: 1.05;
+  margin: 0;
+  font-weight: 850;
+  letter-spacing: .2px;
+}
+.role{
+  margin-top: 5px;
+  font-weight: 650;
+  font-size: 10.5pt;
+  opacity: .95;
+}
+.tagline{
+  margin-top: 6px;
+  font-size: 9.5pt;
+  opacity: .9;
+}
+
+.side-section{ margin-top: 8mm; }
+.side-title{
+  font-size: 9pt;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .9;
+  margin: 0 0 5px;
+}
+.side-list{
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 9.5pt;
+}
+.side-list li{
+  margin: 4px 0;
+  opacity: .95;
+}
+
+/* Petit picto SVG inline (hérite de la couleur) */
+.sidebar svg{ fill: currentColor; }
+
+/* CONTENU */
+.content{
+  padding: 10mm 11mm 8mm 10mm;
+}
+
+.block{ margin-bottom: 6mm; }
+
+.h2{
+  font-size: 10pt;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #0f172a;
+  margin: 0 0 5px;
+}
+
+.p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 9.8pt;
+  line-height: 1.28;
+}
+
+.hr{
+  height: 1px;
+  background: #e5e7eb;
+  border: 0;
+  margin: 6px 0 0;
+}
+
+.item{ margin-top: 6px; }
+
+.item-title{
+  font-weight: 850;
+  margin: 0;
+  font-size: 10.3pt;
+}
+
+.item-meta{
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 9.5pt;
+}
+
+.bullets{
+  margin: 5px 0 0 14px;
+  color: var(--muted);
+  font-size: 9.8pt;
+  line-height: 1.25;
+}
+.bullets li{ margin: 2px 0; }
+
+/* Tags (optionnels mais jolis) */
+.tags{
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tag{
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 3px 7px;
+  font-size: 9pt;
+  color: #0f172a;
+}
+
+/* Évite les coupures moches */
+.block, .item{ break-inside: avoid; page-break-inside: avoid; }
+.h2, .item-title{ break-after: avoid; page-break-after: avoid; }
+
+/* Print : aucun padding en plus */
+@media print{
+  .print-page{ margin: 0; }
+}
+/* --- HARD OVERRIDES POUR ÉVITER QUE LA PHOTO EXPLOSE --- */
+.print-page .avatar,
+.print-page .avatar-lg,
+.print-page .avatar.avatar-lg{
+  display:none !important;  /* on neutralise les classes web si elles apparaissent */
+}
+
+.print-page .avatar-mini{
+  width: 28mm !important;
+  height: 28mm !important;
+  border-radius: 10mm !important;
+  overflow:hidden !important;
+  margin: 0 0 6mm !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+.print-page .avatar-mini img{
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display:block !important;
+}

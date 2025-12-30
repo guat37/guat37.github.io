@@ -9,9 +9,9 @@ linkedin_url: "https://www.linkedin.com/in/glegros37"
 pdf_url: "/cv.pdf"
 
 highlights:
-  - "Directeur de projet depuis 2017 (projets techniques multi-établissements)"
-  - "Expertise : systèmes, réseaux, IAM/SSO, reverse-proxy, TLS"
-  - "Industrialisation, automatisation (O365/Power Automate), MCO/MCS"
+  - "+ de 8 années d'experience en chefferie de projet (projets techniques multi-établissements)"
+  - "Expertise : Architecture, Systèmes, Réseaux, IAM/SSO, Reverse-proxy, cybersécurité"
+  - "Industrialisation, Automatisation, MCO/MCS, Intéropérabilité"
 
 experience:
   - title: "Directeur de projet informatique"
@@ -47,9 +47,9 @@ skills:
     - "Nginx"
     - "Docker / LXC"
     - "O365 / Teams"
-    - "Power Automate"
     - "Active Directory"
     - "VMWare"
+    - "EAI Mirth Connect / Enovacom EIE"
   soft:
     - "Pilotage & coordination"
     - "Communication claire"
@@ -63,7 +63,7 @@ education:
     place: "ENI École informatique"
     details: "Spécialiste Système et Réseaux"
   - title: "BTS Informatique de gestion"
-    period: "2001-2003"
+    period: "2001-2002"
     place: "Lycée Paul-Louis Courier de Tours"
     details: "Système et Réseaux"
 
@@ -71,11 +71,11 @@ projects:
   - name: "Pilotage du programme CaRE"
     image: "/assets/img/projects/care.png"
     meta: "KPI • Vulnérabilités • Trends"
-    description: "Pilotage du programme pour les entités du groupes (18 établissements), mise en conformité de la sécurité informatique et enseignement des bonnes pratiques."
+    description: "Pilotage du programme pour les entités du groupes (18 établissements), accompagnement à l'atteinte des objecifs du programme, mise en conformité de la sécurité informatique et enseignement des bonnes pratiques."
     tags: ["ANS", "Cybersécurité", "KPI"]
     link_label: ""
     link_url: ""
-  - name: "Construction d'un établissement de santé"
+  - name: "Déploiement d'une infrastructure IT hospitalière"
     image: "/assets/img/projects/lv.jpg"
     meta: "460 lits • 35 000 m²"
     description: "Pilotage de la définition de l’architecture informatique d’un établissement multi-activités de 460 lits et 35 000 m², incluant l’analyse des besoins métiers, leur traduction technique et la validation des livrables de la maîtrise d’œuvre. Garantie du maintien en condition opérationnelle du système d’information pendant les phases de travaux et de transition."
