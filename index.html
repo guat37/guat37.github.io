@@ -670,11 +670,72 @@
       letter-spacing: -.04em;
     }
 
-    .skill-bars { display: grid; gap: 18px; }
-    .bar-head { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 900; color: var(--ink-2); font-size: .92rem; }
-    .bar-head span:last-child { color: var(--muted); }
-    .bar-track { height: 9px; border-radius: 999px; overflow: hidden; background: rgba(19,34,56,.10); }
-    .bar-fill { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--ochre), var(--coral), var(--plum)); transition: width 1s cubic-bezier(.22,1,.36,1); }
+    .expertise-list { display: grid; gap: 14px; }
+    .expertise-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(19,34,56,.10);
+      background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,246,231,.72));
+      box-shadow: 0 14px 34px rgba(66,45,24,.07);
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .expertise-item::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -42px auto;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216,148,44,.22), transparent 68%);
+      pointer-events: none;
+    }
+    .expertise-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 46px rgba(66,45,24,.12);
+      border-color: rgba(216,148,44,.35);
+    }
+    .expertise-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--ochre), var(--coral));
+      color: white;
+      font-size: 1.25rem;
+      box-shadow: 0 10px 24px rgba(216,148,44,.24);
+    }
+    .expertise-name {
+      margin: 0 0 5px;
+      color: var(--navy);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 1.02rem;
+      letter-spacing: -.03em;
+    }
+    .expertise-proof {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
+      font-size: .93rem;
+    }
+    .expertise-pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
+    .expertise-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(36,87,245,.08);
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 900;
+    }
 
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
     .tag {
@@ -1045,14 +1106,41 @@
           <p class="section-lead">Mon avantage : garder une lecture projet tout en comprenant les impacts concrets sur les architectures, l’exploitation et les utilisateurs.</p>
         </div>
         <div class="skills-grid">
-          <article class="skill-panel reveal" id="skillBars">
+          <article class="skill-panel reveal">
             <h3 class="skill-title">Domaines d’expertise</h3>
-            <div class="skill-bars">
-              <div><div class="bar-head"><span>Systèmes & virtualisation</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" data-width="95%"></div></div></div>
-              <div><div class="bar-head"><span>Réseaux & infrastructure</span><span>92%</span></div><div class="bar-track"><div class="bar-fill" data-width="92%"></div></div></div>
-              <div><div class="bar-head"><span>IAM / SSO / annuaires</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" data-width="88%"></div></div></div>
-              <div><div class="bar-head"><span>Cybersécurité opérationnelle</span><span>84%</span></div><div class="bar-track"><div class="bar-fill" data-width="84%"></div></div></div>
-              <div><div class="bar-head"><span>Interopérabilité & intégration</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" data-width="80%"></div></div></div>
+            <div class="expertise-list">
+              <div class="expertise-item">
+                <div class="expertise-icon">🖧</div>
+                <div>
+                  <h4 class="expertise-name">Infrastructures systèmes & réseaux</h4>
+                  <p class="expertise-proof">Conception, arbitrage et pilotage d’environnements LAN/WAN/Wi-Fi, virtualisation, serveurs et services socles, avec une lecture terrain de l’exploitation.</p>
+                  <div class="expertise-pillrow"><span class="expertise-pill">architecture</span><span class="expertise-pill">exploitation</span><span class="expertise-pill">résilience</span></div>
+                </div>
+              </div>
+              <div class="expertise-item">
+                <div class="expertise-icon">🪪</div>
+                <div>
+                  <h4 class="expertise-name">Identités, accès & SSO</h4>
+                  <p class="expertise-proof">Pilotage de trajectoires IAM à grande échelle, dont un programme de gestion des identités pour 38 000 collaborateurs.</p>
+                  <div class="expertise-pillrow"><span class="expertise-pill">IAM</span><span class="expertise-pill">SSO</span><span class="expertise-pill">annuaires</span></div>
+                </div>
+              </div>
+              <div class="expertise-item">
+                <div class="expertise-icon">🏥</div>
+                <div>
+                  <h4 class="expertise-name">Systèmes d’information de santé</h4>
+                  <p class="expertise-proof">20 ans d’expérience dans le secteur santé, avec une compréhension des contraintes établissements, continuité de service, intégration métier et sécurité.</p>
+                  <div class="expertise-pillrow"><span class="expertise-pill">santé</span><span class="expertise-pill">interopérabilité</span><span class="expertise-pill">continuité</span></div>
+                </div>
+              </div>
+              <div class="expertise-item">
+                <div class="expertise-icon">🧭</div>
+                <div>
+                  <h4 class="expertise-name">Pilotage de projets techniques complexes</h4>
+                  <p class="expertise-proof">Coordination des parties prenantes, cadrage, risques, budget, planning et intégration de lots techniques depuis la conception jusqu’à la mise en production.</p>
+                  <div class="expertise-pillrow"><span class="expertise-pill">direction projet</span><span class="expertise-pill">CFA</span><span class="expertise-pill">delivery</span></div>
+                </div>
+              </div>
             </div>
           </article>
           <article class="skill-panel reveal delay-1">
@@ -1212,18 +1300,6 @@
     }, { threshold: 0.6 });
 
     document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
-
-    const bars = document.querySelectorAll('.bar-fill');
-    const barsObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        bars.forEach((bar, index) => setTimeout(() => { bar.style.width = bar.dataset.width; }, index * 120));
-        barsObserver.disconnect();
-      });
-    }, { threshold: 0.35 });
-
-    const skillBars = document.getElementById('skillBars');
-    if (skillBars) barsObserver.observe(skillBars);
   </script>
 </body>
 </html>
