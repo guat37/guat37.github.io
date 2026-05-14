@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grégoire Legros — Directeur de Projet Informatique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0D2137;
+      --navy-mid:  #1B3A5C;
+      --teal:      #06C2D4;
+      --teal-d:    #0891B2;
+      --coral:     #F05941;
+      --amber:     #F59E0B;
+      --green:     #10B981;
+      --bg:        #F7F5F2;
+      --surface:   #FFFFFF;
+      --text:      #111827;
+      --muted:     #6B7280;
+      --line:      #E5E1DA;
+      --r:         16px;
+      --sh:        0 4px 24px rgba(13,33,55,.07);
+      --sh-lg:     0 16px 56px rgba(13,33,55,.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
+
+    /* ── NAV ──────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(247,245,242,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .nav.scrolled {
+      border-bottom-color: var(--line);
+      box-shadow: 0 2px 20px rgba(13,33,55,.06);
+    }
+    .nav-brand {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.05rem; letter-spacing: -.3px;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2px; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      padding: 7px 13px; border-radius: 10px;
+      font-size: .88rem; font-weight: 500;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(0,0,0,.05); }
+    .nav-links .cta {
+      background: var(--navy); color: #fff !important;
+      padding: 8px 16px; border-radius: 10px;
+    }
+    .nav-links .cta:hover { background: var(--navy-mid) !important; }
+
+    /* ── LAYOUT ───────────────────────────────────── */
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+    .section    { padding: 88px 0; }
+    .section-bg { background: var(--surface); }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal-d); margin-bottom: 10px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 18px; height: 2px;
+      background: var(--teal); border-radius: 2px;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 800;
+      color: var(--navy); margin-bottom: 44px;
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 130px 0 80px; position: relative; overflow: hidden;
+    }
+    .hero-glow-1 {
+      position: absolute; top: -80px; right: -160px;
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,194,212,.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -80px; left: -80px;
+      width: 460px; height: 460px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,89,65,.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: center;
+    }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(6,194,212,.1); border: 1px solid rgba(6,194,212,.3);
+      color: var(--teal-d); font-size: .82rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 22px;
+    }
+    .hero-chip .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--teal);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.4; transform:scale(.75); }
+    }
+    .hero-name {
+      font-size: clamp(3.2rem, 6vw, 5.2rem); font-weight: 800;
+      color: var(--navy); letter-spacing: -2.5px; line-height: .95;
+      margin-bottom: 16px;
+    }
+    .hero-name em { color: var(--teal); font-style: normal; }
+    .hero-role {
+      font-size: 1.2rem; font-weight: 400; color: var(--muted); margin-bottom: 28px;
+    }
+    .hero-desc {
+      color: #4B5563; max-width: 460px; line-height: 1.75;
+      margin-bottom: 36px; font-size: .97rem;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: #fff; text-decoration: none;
+      padding: 13px 22px; border-radius: 12px; font-weight: 600;
+      font-size: .93rem; transition: transform .2s, box-shadow .2s;
+    }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(13,33,55,.25); }
+    .btn-s {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); color: var(--text); text-decoration: none;
+      padding: 13px 22px; border-radius: 12px; font-weight: 600;
+      font-size: .93rem; border: 1.5px solid var(--line);
+      transition: transform .2s, border-color .2s;
+    }
+    .btn-s:hover { transform: translateY(-2px); border-color: var(--teal); }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--surface); border-radius: 22px;
+      box-shadow: var(--sh-lg); border: 1px solid var(--line); overflow: hidden;
+    }
+    .hero-card-top {
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 32px 24px; text-align: center;
+    }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+      border: 3px solid rgba(6,194,212,.5); margin-bottom: 14px;
+      display: block; margin-left: auto; margin-right: auto;
+    }
+    .card-name { font-family:'Syne',sans-serif; font-weight:700; color:#fff; font-size:1.05rem; margin-bottom:3px; }
+    .card-role { color:rgba(255,255,255,.55); font-size:.83rem; }
+
+    .hero-card-body { padding: 20px 22px; }
+    .hstat {
+      display: flex; align-items: center; gap: 13px;
+      padding: 11px 0; border-bottom: 1px solid var(--line);
+    }
+    .hstat:last-child { border-bottom: none; }
+    .hstat-ic {
+      width: 34px; height: 34px; border-radius: 9px;
+      display: grid; place-items: center; font-size: .95rem; flex-shrink: 0;
+    }
+    .ic-teal  { background: rgba(6,194,212,.1); }
+    .ic-coral { background: rgba(240,89,65,.1); }
+    .ic-amb   { background: rgba(245,158,11,.1); }
+    .ic-grn   { background: rgba(16,185,129,.1); }
+    .hstat-lbl { font-size:.77rem; color:var(--muted); line-height:1.2; }
+    .hstat-val { font-family:'Syne',sans-serif; font-weight:700; font-size:.9rem; color:var(--text); }
+
+    /* ── HIGHLIGHTS ───────────────────────────────── */
+    .hl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .hl-card {
+      background: var(--surface); border-radius: var(--r);
+      padding: 28px 26px; box-shadow: var(--sh); border: 1px solid var(--line);
+      position: relative; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .hl-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
+    .hl-card::before {
+      content: ''; position: absolute; top:0; left:0; right:0; height:3px;
+    }
+    .hl-card:nth-child(1)::before { background: var(--teal); }
+    .hl-card:nth-child(2)::before { background: var(--coral); }
+    .hl-card:nth-child(3)::before { background: var(--amber); }
+    .hl-num {
+      font-family:'Syne',sans-serif; font-size:2.8rem; font-weight:800;
+      line-height:1; margin-bottom:8px;
+    }
+    .hl-card:nth-child(1) .hl-num { color: var(--teal-d); }
+    .hl-card:nth-child(2) .hl-num { color: var(--coral); }
+    .hl-card:nth-child(3) .hl-num { color: var(--amber); }
+    .hl-txt { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+
+    /* ── EXPERIENCE ───────────────────────────────── */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content:''; position:absolute; left:0; top:8px; bottom:8px; width:2px;
+      background: linear-gradient(to bottom, var(--teal), rgba(6,194,212,.2));
+      border-radius:2px;
+    }
+    .tl-item { position:relative; padding-bottom:52px; }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-dot {
+      position:absolute; left:-37px; top:5px;
+      width:14px; height:14px; border-radius:50%;
+      background:var(--teal); border:3px solid var(--bg);
+      box-shadow:0 0 0 2px var(--teal);
+    }
+    .tl-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .tl-period {
+      font-size:.8rem; font-weight:600; color:var(--teal-d);
+      background:rgba(6,194,212,.09); padding:3px 10px; border-radius:6px;
+    }
+    .tl-pill {
+      font-size:.77rem; font-weight:600; color:var(--muted);
+      background:var(--line); padding:3px 10px; border-radius:6px;
+    }
+    .tl-title {
+      font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700;
+      color:var(--navy); margin-bottom:3px;
+    }
+    .tl-place { font-size:.87rem; color:var(--muted); margin-bottom:14px; }
+    .tl-bullets { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .tl-bullets li {
+      display:flex; gap:10px; font-size:.91rem; color:#4B5563; line-height:1.65;
+    }
+    .tl-bullets li::before { content:'→'; color:var(--teal); font-weight:700; flex-shrink:0; }
+
+    /* ── SKILLS ───────────────────────────────────── */
+    .sk-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+    .sk-block-title {
+      font-family:'Syne',sans-serif; font-weight:700; font-size:.98rem;
+      color:var(--navy); margin-bottom:20px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .bar-item { margin-bottom:18px; }
+    .bar-head { display:flex; justify-content:space-between; margin-bottom:8px; font-size:.87rem; font-weight:500; }
+    .bar-head span:last-child { color:var(--muted); }
+    .bar-track { height:6px; background:var(--line); border-radius:100px; overflow:hidden; }
+    .bar-fill {
+      height:100%; border-radius:100px;
+      background:linear-gradient(90deg, var(--teal-d), var(--teal));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .8s cubic-bezier(.4,0,.2,1);
+    }
+    .bar-fill.go { transform:scaleX(1); }
+
+    .tags { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag {
+      background:var(--surface); border:1.5px solid var(--line);
+      padding:6px 13px; border-radius:8px; font-size:.84rem; font-weight:500;
+      color:var(--text); transition:border-color .2s, color .2s;
+    }
+    .tag:hover { border-color:var(--teal); color:var(--teal-d); }
+
+    .soft-list { display:flex; flex-direction:column; gap:9px; margin-top:24px; }
+    .soft-item {
+      display:flex; align-items:center; gap:10px;
+      font-size:.89rem; color:#374151;
+    }
+    .soft-item::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--coral); flex-shrink:0;
+    }
+
+    /* ── PROJECTS ─────────────────────────────────── */
+    .proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .proj-card {
+      background:var(--surface); border-radius:var(--r); overflow:hidden;
+      box-shadow:var(--sh); border:1px solid var(--line);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .proj-card:hover { transform:translateY(-5px); box-shadow:var(--sh-lg); }
+    .proj-img { width:100%; height:188px; object-fit:cover; display:block; }
+    .proj-body { padding:24px; }
+    .proj-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+    .proj-tag {
+      font-size:.73rem; font-weight:700; letter-spacing:.04em;
+      background:rgba(6,194,212,.08); color:var(--teal-d);
+      border:1px solid rgba(6,194,212,.22); padding:3px 9px; border-radius:6px;
+    }
+    .proj-name {
+      font-family:'Syne',sans-serif; font-size:1.12rem; font-weight:700;
+      color:var(--navy); margin-bottom:4px;
+    }
+    .proj-meta { font-size:.8rem; font-weight:600; color:var(--teal-d); margin-bottom:10px; }
+    .proj-desc { font-size:.87rem; color:var(--muted); line-height:1.65; }
+
+    /* ── EDUCATION + CERTS ────────────────────────── */
+    .ec-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+
+    .edu-item {
+      display:flex; gap:18px; padding-bottom:28px;
+      border-bottom:1px solid var(--line); margin-bottom:28px;
+    }
+    .edu-item:last-child { border-bottom:none; margin-bottom:0; }
+    .edu-yr {
+      font-family:'Syne',sans-serif; font-weight:800;
+      font-size:1.6rem; color:var(--line); min-width:60px; line-height:1.1;
+    }
+    .edu-title {
+      font-family:'Syne',sans-serif; font-weight:700; font-size:1rem;
+      color:var(--navy); margin-bottom:4px;
+    }
+    .edu-place { font-size:.84rem; color:var(--muted); }
+
+    .cert-card {
+      display:flex; align-items:center; gap:16px; background:var(--surface);
+      padding:16px 18px; border-radius:12px; border:1px solid var(--line);
+      box-shadow:var(--sh); margin-bottom:14px;
+      transition:transform .2s;
+    }
+    .cert-card:last-child { margin-bottom:0; }
+    .cert-card:hover { transform:translateY(-2px); }
+    .cert-logo { width:48px; height:48px; object-fit:contain; border-radius:8px; }
+    .cert-name { font-family:'Syne',sans-serif; font-weight:700; color:var(--navy); }
+    .cert-org  { font-size:.83rem; color:var(--muted); }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    .contact-section { background:var(--navy); padding:70px 0; }
+    .contact-inner {
+      display:flex; justify-content:space-between; align-items:center;
+      gap:32px; flex-wrap:wrap;
+    }
+    .contact-h { color:#fff; font-size:2rem; font-weight:800; margin-bottom:6px; }
+    .contact-sub { color:rgba(255,255,255,.5); font-size:.95rem; }
+    .contact-links { display:flex; gap:10px; flex-wrap:wrap; }
+    .c-btn {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,.1); color:#fff; text-decoration:none;
+      padding:12px 18px; border-radius:10px; font-weight:500; font-size:.9rem;
+      border:1px solid rgba(255,255,255,.14);
+      transition:background .2s;
+    }
+    .c-btn:hover { background:rgba(255,255,255,.17); }
+    .c-btn.accent {
+      background:var(--teal); color:var(--navy);
+      border-color:var(--teal); font-weight:700;
+    }
+    .c-btn.accent:hover { background:#07D5EA; }
+
+    footer {
+      background:var(--navy); border-top:1px solid rgba(255,255,255,.07);
+      text-align:center; padding:18px; color:rgba(255,255,255,.28); font-size:.8rem;
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    .fu { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+    .fu.vis { opacity:1; transform:none; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media(max-width:860px) {
+      .hero-inner   { grid-template-columns:1fr; }
+      .hero-card    { display:none; }
+      .hl-grid      { grid-template-columns:1fr; }
+      .sk-grid      { grid-template-columns:1fr; }
+      .proj-grid    { grid-template-columns:1fr; }
+      .ec-grid      { grid-template-columns:1fr; }
+      .nav-links li:not(:last-child) { display:none; }
+      .container    { padding:0 20px; }
+      .contact-inner{ flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">Grégoire Legros</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#contact" class="cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Left -->
+      <div>
+        <div class="hero-chip">
+          <span class="dot"></span>
+          Disponible pour opportunités
+        </div>
+        <h1 class="hero-name">Grégoire<br><em>Legros</em></h1>
+        <p class="hero-role">Directeur de Projet Informatique</p>
+        <p class="hero-desc">
+          Systèmes &amp; Réseaux · IAM/SSO · Secteur santé.<br>
+          Plus de 8 ans de pilotage de projets techniques complexes 
+          en environnement hospitalier multi-établissements.
+        </p>
+        <div class="hero-btns">
+          <a href="/cv.pdf" class="btn-p" target="_blank">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Télécharger le CV
+          </a>
+          <a href="https://www.linkedin.com/in/glegros37" class="btn-s" target="_blank">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Right card -->
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <img src="/assets/img/avatar.png" alt="Grégoire Legros" class="avatar">
+          <div class="card-name">Grégoire Legros</div>
+          <div class="card-role">Directeur de projet IT · France</div>
+        </div>
+        <div class="hero-card-body">
+          <div class="hstat">
+            <div class="hstat-ic ic-teal">🏥</div>
+            <div><div class="hstat-lbl">Secteur</div><div class="hstat-val">Santé</div></div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-ic ic-coral">⚡</div>
+            <div><div class="hstat-lbl">Expérience</div><div class="hstat-val">+8 ans en chefferie</div></div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-ic ic-amb">🔐</div>
+            <div><div class="hstat-lbl">Expertise</div><div class="hstat-val">IAM/SSO · Infra</div></div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-ic ic-grn">📍</div>
+            <div><div class="hstat-lbl">Localisation</div><div class="hstat-val">France</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ HIGHLIGHTS ════════════════════════════════════ -->
+<section class="section section-bg" id="highlights">
+  <div class="container">
+    <div class="section-label">Points forts</div>
+    <h2 class="section-title">En bref</h2>
+    <div class="hl-grid">
+      <div class="hl-card fu">
+        <div class="hl-num">8+</div>
+        <p class="hl-txt">Années d'expérience en chefferie de projet — projets techniques multi-établissements.</p>
+      </div>
+      <div class="hl-card fu" style="transition-delay:.1s">
+        <div class="hl-num">18</div>
+        <p class="hl-txt">Établissements de santé accompagnés dans le cadre du programme CaRE (cybersécurité).</p>
+      </div>
+      <div class="hl-card fu" style="transition-delay:.2s">
+        <div class="hl-num">460</div>
+        <p class="hl-txt">Lits déployés lors du pilotage d'une infrastructure hospitalière complète de 35 000 m².</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ════════════════════════════════════ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-label">Parcours</div>
+    <h2 class="section-title">Expérience</h2>
+    <div class="timeline">
+
+      <div class="tl-item fu">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">
+          <span class="tl-period">2017 — Aujourd'hui</span>
+          <span class="tl-pill">Infra / Systèmes / Réseaux</span>
+        </div>
+        <div class="tl-title">Directeur de projet informatique</div>
+        <div class="tl-place">Secteur santé</div>
+        <ul class="tl-bullets">
+          <li>Pilotage de projets réseaux/sécurité (multi-sites), coordination MOA/MOE, prestataires.</li>
+          <li>Référent technique : architecture, standardisation, documentation, mise en production.</li>
+          <li>Interface étroite avec les équipes SSI (IAM, contrôle d'accès, conformité).</li>
+        </ul>
+      </div>
+
+      <div class="tl-item fu" style="transition-delay:.1s">
+        <div class="tl-dot" style="background:var(--coral);box-shadow:0 0 0 2px var(--coral)"></div>
+        <div class="tl-meta">
+          <span class="tl-period" style="color:var(--coral);background:rgba(240,89,65,.09)">Avant 2017</span>
+          <span class="tl-pill">MCO</span>
+        </div>
+        <div class="tl-title">Ingénieur de production — Systèmes &amp; Réseaux</div>
+        <div class="tl-place">Secteur santé</div>
+        <ul class="tl-bullets">
+          <li>Exploitation, supervision, gestion incidents/changements, amélioration continue.</li>
+          <li>Renforcement sécurité et qualité de service (disponibilité, performance, durcissement).</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ════════════════════════════════════════ -->
+<section class="section section-bg" id="skills">
+  <div class="container">
+    <div class="section-label">Savoir-faire</div>
+    <h2 class="section-title">Compétences</h2>
+    <div class="sk-grid">
+
+      <!-- Techniques -->
+      <div>
+        <div class="sk-block-title">📊 Techniques</div>
+        <div id="skillBars">
+          <div class="bar-item">
+            <div class="bar-head"><span>Systèmes</span><span>95 %</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-head"><span>Réseaux</span><span>92 %</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-head"><span>IAM / SSO</span><span>85 %</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-head"><span>Intéropérabilité</span><span>80 %</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outils + soft -->
+      <div>
+        <div class="sk-block-title">🛠️ Outils</div>
+        <div class="tags">
+          <span class="tag">Windows</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Docker / LXC</span>
+          <span class="tag">O365 / Teams</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">VMware</span>
+          <span class="tag">Mirth Connect</span>
+          <span class="tag">Enovacom EIE</span>
+        </div>
+        <div class="sk-block-title" style="margin-top:30px">🤝 Soft skills</div>
+        <div class="soft-list">
+          <div class="soft-item">Pilotage &amp; coordination</div>
+          <div class="soft-item">Communication claire</div>
+          <div class="soft-item">Rigueur &amp; sens du risque</div>
+          <div class="soft-item">Orienté solution</div>
+          <div class="soft-item">Documentation &amp; transmission</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══════════════════════════════════════ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-label">Réalisations</div>
+    <h2 class="section-title">Projets clés</h2>
+    <div class="proj-grid">
+
+      <div class="proj-card fu">
+        <img src="/assets/img/projects/care.png" alt="Programme CaRE" class="proj-img">
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">ANS</span>
+            <span class="proj-tag">Cybersécurité</span>
+            <span class="proj-tag">KPI</span>
+          </div>
+          <div class="proj-name">Pilotage du programme CaRE</div>
+          <div class="proj-meta">KPI · Vulnérabilités · Trends</div>
+          <p class="proj-desc">
+            Pilotage du programme pour 18 établissements du groupe, accompagnement à l'atteinte 
+            des objectifs, mise en conformité de la sécurité informatique et enseignement des 
+            bonnes pratiques.
+          </p>
+        </div>
+      </div>
+
+      <div class="proj-card fu" style="transition-delay:.12s">
+        <img src="/assets/img/projects/lv.jpg" alt="Infrastructure hospitalière" class="proj-img">
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag">Architecture</span>
+            <span class="proj-tag">Santé</span>
+          </div>
+          <div class="proj-name">Infrastructure IT hospitalière</div>
+          <div class="proj-meta">460 lits · 35 000 m²</div>
+          <p class="proj-desc">
+            Pilotage de l'architecture informatique d'un établissement multi-activités : analyse 
+            des besoins, traduction technique, validation des livrables MOE et MCO pendant les 
+            phases de travaux.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION + CERTS ═══════════════════════════ -->
+<section class="section section-bg" id="education">
+  <div class="container">
+    <div class="ec-grid">
+
+      <div>
+        <div class="section-label">Parcours académique</div>
+        <h2 class="section-title" style="margin-bottom:30px">Formation</h2>
+        <div class="edu-item fu">
+          <div class="edu-yr">2003</div>
+          <div>
+            <div class="edu-title">Spécialiste Système et Réseaux</div>
+            <div class="edu-place">ENI École informatique</div>
+          </div>
+        </div>
+        <div class="edu-item fu" style="transition-delay:.1s">
+          <div class="edu-yr">2002</div>
+          <div>
+            <div class="edu-title">BTS Informatique de gestion</div>
+            <div class="edu-place">Lycée Paul-Louis Courier de Tours</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Certifications</div>
+        <h2 class="section-title" style="margin-bottom:30px">Certifications</h2>
+        <div class="cert-card fu">
+          <img src="/assets/img/certs/mcse.png" alt="MCSE" class="cert-logo">
+          <div>
+            <div class="cert-name">MCSE</div>
+            <div class="cert-org">Microsoft</div>
+          </div>
+        </div>
+        <div class="cert-card fu" style="transition-delay:.1s">
+          <img src="/assets/img/certs/secucyber.jpg" alt="SecuCyber" class="cert-logo">
+          <div>
+            <div class="cert-name">SecuCyber</div>
+            <div class="cert-org">HS2</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-h">Travaillons ensemble</h2>
+        <p class="contact-sub">Un projet IT dans le secteur santé ? Discutons-en.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:glegrospro37@gmail.com" class="c-btn accent">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          glegrospro37@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/glegros37" class="c-btn" target="_blank">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          /glegros37
+        </a>
+        <a href="/cv.pdf" class="c-btn" target="_blank">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          CV PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Grégoire Legros — Directeur de Projet Informatique
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  // Fade-up on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: .14 });
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+  // Skill bars
+  const barIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach((b, i) => {
+          setTimeout(() => b.classList.add('go'), i * 140);
+        });
+        barIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: .3 });
+  const sb = document.getElementById('skillBars');
+  if (sb) barIO.observe(sb);
+</script>
+</body>
+</html>
