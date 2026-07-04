@@ -8,7 +8,7 @@ permalink: /print/
   <aside class="sidebar">
 
     <div class="avatar-mini">
-      <img src="{{ '/assets/img/avatar.png' | relative_url }}" alt="Photo">
+      <img src="{{ site.data.profile.avatar_url | relative_url }}" alt="Photo">
     </div>
 
     <h1 class="name">{{ site.data.profile.name }}</h1>
