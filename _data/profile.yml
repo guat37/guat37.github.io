@@ -93,3 +93,56 @@ certifications:
   - name: "SecuCyber"
     org: "HS2"
     img: "/assets/img/certs/secucyber.jpg"
+
+premium:
+  hero_title: "Piloter les projets IT critiques avec rigueur et vision."
+  hero_lines:
+    - "Structurer des infrastructures fiables."
+    - "Renforcer la sécurité et les identités numériques."
+    - "Conduire les transformations SI jusqu’à l’exploitation."
+
+  vision_title: "Aligner les choix techniques, les risques et les objectifs métiers."
+  vision:
+    - "Je pilote des projets SI à forte composante infrastructure, sécurité et exploitation dans des environnements où la continuité de service, la conformité et la qualité de production sont déterminantes."
+    - "Mon approche associe une compréhension opérationnelle des architectures systèmes et réseaux à une méthode de direction projet : cadrage, arbitrage, coordination des parties prenantes, suivi des risques, documentation et conduite de la mise en production."
+    - "J’interviens à l’interface des directions métiers, des équipes techniques, des acteurs SSI et des prestataires pour sécuriser les décisions, clarifier les dépendances et maintenir une trajectoire maîtrisée."
+
+  journey_title: "Un parcours construit entre exploitation, architecture et direction de projets."
+  expertise_title: "Domaines d’intervention"
+  expertise_zones:
+    - name: "Cybersécurité"
+      description: "Plans d’action, réduction des vulnérabilités, coordination SSI et contribution à la conformité."
+    - name: "Infrastructure"
+      description: "Architecture systèmes et réseaux, standardisation, disponibilité et exploitation multi-sites."
+    - name: "Cloud"
+      description: "Hébergement, virtualisation, services socles et trajectoires d’évolution des plateformes."
+    - name: "IAM"
+      description: "Identités numériques, accès, SSO, annuaires et gouvernance des habilitations."
+    - name: "Gestion de projet"
+      description: "Cadrage, budget, planning, risques, comités, arbitrages et coordination des parties prenantes."
+    - name: "Architecture"
+      description: "Choix techniques, intégration, dépendances, maintenabilité et cohérence du système d’information."
+    - name: "Interopérabilité"
+      description: "Flux, interfaces, EAI, échanges applicatifs et continuité des usages métiers."
+    - name: "Télécom"
+      description: "Réseaux, téléphonie, accès, services connectés et intégration des lots techniques."
+
+  achievements_title: "Projets représentatifs"
+  indicators_title: "Indicateurs clés"
+  indicators:
+    - value: "20+"
+      count: 20
+      label: "ans d’expérience dans les systèmes d’information"
+    - value: "100+"
+      count: 100
+      label: "projets et chantiers techniques pilotés ou accompagnés"
+    - value: "38 000"
+      count: 38000
+      label: "identités numériques intégrées dans une trajectoire IAM"
+    - value: "99,9"
+      label: "culture de disponibilité, de continuité et de maîtrise opérationnelle"
+
+  philosophy_quote: "Une infrastructure réussie est celle qui reste compréhensible, maîtrisée et fiable dans la durée."
+  philosophy_text: "Une conviction fondée sur la continuité de service, la maîtrise des risques, la qualité documentaire et la lisibilité des décisions."
+  contact_title: "Échangeons sur vos enjeux IT."
+  contact_button: "Prendre contact"

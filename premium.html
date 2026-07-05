@@ -1,4 +1,5 @@
 ---
+permalink: /premium/
 ---
 {% assign profile = site.data.profile %}
 {% assign premium = profile.premium %}
@@ -7,13 +8,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <meta name="description" content="CV en ligne premium de {{ profile.name }}, {{ profile.role }} spécialisé infrastructures, cybersécurité, IAM et transformation SI." />
-  <meta name="author" content="{{ profile.name | escape }}" />
-  <meta property="og:title" content="{{ profile.name | escape }} — {{ profile.role | escape }}" />
-  <meta property="og:description" content="Direction de projets IT, infrastructures, cybersécurité, identité numérique et transformation des systèmes d'information." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="{{ profile.avatar_url | relative_url }}" />
-  <title>{{ profile.name }} — {{ profile.role }}</title>
+  <title>Premium CV — {{ profile.name }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
