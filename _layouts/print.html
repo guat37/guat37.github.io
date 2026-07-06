@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}" />
 </head>
 <body class="print">
+  <nav class="screen-actions" aria-label="Actions CV imprimable">
+    <a href="{{ '/' | relative_url }}">Retour au site</a>
+    <button type="button" onclick="window.print()">Imprimer / enregistrer en PDF</button>
+  </nav>
   <main class="print-container">
     {{ content }}
   </main>

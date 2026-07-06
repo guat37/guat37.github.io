@@ -31,6 +31,15 @@ Puis ouvre :
 - `http://127.0.0.1:4000/premium/` (copie de travail premium)
 - `http://127.0.0.1:4000/print/`
 
+## Générer le PDF
+Le PDF `cv.pdf` est généré depuis la page Jekyll `/print/`, elle-même alimentée par `_data/profile.yml`.
+
+```bash
+scripts/generate-cv-pdf.sh
+```
+
+Le script construit le site, lance un serveur local temporaire, imprime `/print/` avec Chromium headless, puis remplace `cv.pdf`. La feuille print est calibrée pour tenir sur une seule page A4.
+
 ## Fichiers locaux
 `Gemfile.lock` doit rester versionné pour garder un environnement Jekyll reproductible.
 Les dossiers générés ou installés localement (`_site/`, `.bundle/`, `vendor/`, `.jekyll-cache/`) sont ignorés par Git.

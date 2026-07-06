@@ -10,6 +10,8 @@ pdf_url: "/cv.pdf"
 website_label: "moncv.deleg.fr"
 website_url: "https://moncv.deleg.fr"
 avatar_url: "/assets/img/avatar.png"
+hero_avatar_url: "/assets/img/avatar-hero-natural.png"
+summary: "Directeur de projet informatique spécialisé dans les infrastructures, la cybersécurité, l’identité numérique et la transformation des systèmes d’information. J’interviens sur le cadrage, l’architecture, la coordination des parties prenantes et la mise en production de projets techniques à forts enjeux de disponibilité, de sécurité et de qualité de service."
 
 highlights:
   - "+ de 8 années d'experience en chefferie de projet (projets techniques multi-établissements)"
@@ -95,7 +97,7 @@ certifications:
     img: "/assets/img/certs/secucyber.jpg"
 
 premium:
-  hero_title: "Piloter les projets IT critiques avec rigueur et vision."
+  hero_title: 'Piloter les projets <span class="performance-mark">IT</span> critiques avec rigueur et vision.'
   hero_lines:
     - "Structurer des infrastructures fiables."
     - "Renforcer la sécurité et les identités numériques."
@@ -107,7 +109,7 @@ premium:
     - "Mon approche associe une compréhension opérationnelle des architectures systèmes et réseaux à une méthode de direction projet : cadrage, arbitrage, coordination des parties prenantes, suivi des risques, documentation et conduite de la mise en production."
     - "J’interviens à l’interface des directions métiers, des équipes techniques, des acteurs SSI et des prestataires pour sécuriser les décisions, clarifier les dépendances et maintenir une trajectoire maîtrisée."
 
-  journey_title: "Un parcours construit entre exploitation, architecture et direction de projets."
+  journey_title: 'Un parcours construit entre exploitation, <span class="performance-mark">architecture</span> et direction de projets.'
   expertise_title: "Domaines d’intervention"
   expertise_zones:
     - name: "Cybersécurité"
@@ -139,8 +141,9 @@ premium:
     - value: "38 000"
       count: 38000
       label: "identités numériques intégrées dans une trajectoire IAM"
-    - value: "99,9"
-      label: "culture de disponibilité, de continuité et de maîtrise opérationnelle"
+    - value: "18"
+      count: 18
+      label: "établissements accompagnés dans le cadre du programme CaRE"
 
   philosophy_quote: "Une infrastructure réussie est celle qui reste compréhensible, maîtrisée et fiable dans la durée."
   philosophy_text: "Une conviction fondée sur la continuité de service, la maîtrise des risques, la qualité documentaire et la lisibilité des décisions."

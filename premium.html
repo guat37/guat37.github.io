@@ -67,11 +67,34 @@ permalink: /premium/
       background-size: 100% 100%, auto, auto, auto;
       line-height: 1.55;
       overflow-x: hidden;
+      cursor: default;
+      caret-color: transparent;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body.menu-open { overflow: hidden; }
 
     a { color: inherit; }
+
+    main,
+    .nav,
+    .mobile-menu,
+    .modal {
+      user-select: none;
+    }
+
+    .scroll-progress {
+      position: fixed;
+      z-index: 90;
+      top: 0;
+      left: 0;
+      width: calc(var(--scroll-progress, 0) * 1%);
+      height: 2px;
+      background: linear-gradient(90deg, var(--bronze), var(--metal));
+      box-shadow: 0 0 24px rgba(184,137,84,.34);
+      transform-origin: left;
+      pointer-events: none;
+    }
 
     .cursor-halo {
       position: fixed;
@@ -99,6 +122,8 @@ permalink: /premium/
       opacity: .34;
       color: color-mix(in srgb, var(--forest) 34%, transparent);
       mask-image: linear-gradient(to bottom, rgba(0,0,0,.95), rgba(0,0,0,.36) 58%, transparent);
+      transform: translate3d(0, var(--topo-shift, 0px), 0) scale(1.04);
+      transition: transform .12s linear;
     }
 
     .topography svg {
@@ -264,37 +289,61 @@ permalink: /premium/
     .hero::before {
       content: "";
       position: absolute;
-      inset: 13% -12% auto auto;
-      width: min(64vw, 860px);
+      inset: 14% -6% auto auto;
+      width: min(56vw, 760px);
       aspect-ratio: 1.42;
       border-radius: 48% 52% 46% 54% / 52% 44% 56% 48%;
       background:
-        url("{{ profile.avatar_url | relative_url }}") center top 4% / auto 118% no-repeat,
-        linear-gradient(145deg, rgba(7,9,8,.96), rgba(22,59,46,.88) 54%, rgba(48,92,70,.86));
-      box-shadow: 0 34px 100px rgba(0,0,0,.28), inset 0 0 0 1px rgba(248,248,245,.10);
-      opacity: .92;
+        radial-gradient(circle at 68% 22%, rgba(231,223,200,.16), transparent 33%),
+        linear-gradient(145deg, rgba(7,9,8,.98), rgba(22,59,46,.92) 54%, rgba(48,92,70,.88));
+      box-shadow: 0 34px 100px rgba(0,0,0,.26), inset 0 0 0 1px rgba(248,248,245,.10);
+      opacity: .90;
       transform: rotate(-8deg);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: 13% -12% auto auto;
-      width: min(64vw, 860px);
+      inset: 14% -6% auto auto;
+      width: min(56vw, 760px);
       aspect-ratio: 1.42;
       border-radius: 48% 52% 46% 54% / 52% 44% 56% 48%;
       background:
-        linear-gradient(90deg, rgba(7,9,8,.88) 0%, rgba(22,59,46,.58) 34%, rgba(22,59,46,.04) 68%),
-        linear-gradient(180deg, transparent 42%, rgba(6,18,14,.36) 100%),
-        repeating-linear-gradient(105deg, transparent 0 34px, rgba(248,248,245,.045) 34px 35px),
-        radial-gradient(circle at 30% 20%, rgba(231,223,200,.22), transparent 35%);
-      opacity: .92;
+        url("{{ profile.hero_avatar_url | default: profile.avatar_url | relative_url }}") center top 4% / auto 116% no-repeat;
+      filter: saturate(.98) contrast(1.02) brightness(1);
+      opacity: .84;
       transform: rotate(-8deg);
+      -webkit-mask-image:
+        radial-gradient(ellipse at 52% 42%, #000 0 44%, rgba(0,0,0,.86) 55%, rgba(0,0,0,.35) 68%, transparent 82%);
+      mask-image:
+        radial-gradient(ellipse at 52% 42%, #000 0 44%, rgba(0,0,0,.86) 55%, rgba(0,0,0,.35) 68%, transparent 82%);
       pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      z-index: 0;
+      top: 56px;
+      right: 0;
+      width: min(62vw, 880px);
+      height: 250px;
+      color: var(--bronze);
+      opacity: .15;
+      pointer-events: none;
+      transform: translateX(6%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.9) 18%, rgba(0,0,0,.9) 78%, transparent 100%);
+    }
+
+    .hero-watermark path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.1;
+      vector-effect: non-scaling-stroke;
     }
 
     .hero-grid {
       position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
       gap: 72px;
@@ -315,15 +364,56 @@ permalink: /premium/
       max-width: 900px;
       margin: 0;
       font-family: Sora, Inter, sans-serif;
-      font-size: clamp(4.2rem, 9vw, 9.2rem);
-      line-height: .86;
-      letter-spacing: -.08em;
+      font-size: clamp(4rem, 8.2vw, 8.4rem);
+      line-height: .88;
+      letter-spacing: -.074em;
       color: var(--forest);
       text-transform: uppercase;
     }
 
     @media (prefers-color-scheme: dark) {
       h1 { color: #F8F8F5; }
+    }
+
+    .performance-mark {
+      position: relative;
+      display: inline-block;
+      color: color-mix(in srgb, var(--ink) 72%, var(--copper));
+      font-weight: 900;
+      letter-spacing: .015em;
+      isolation: isolate;
+    }
+
+    .performance-mark::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: .08em -.18em .02em;
+      border-radius: .18em;
+      background:
+        linear-gradient(135deg, rgba(184,137,84,.14), rgba(184,137,84,0) 64%);
+      opacity: .75;
+      transform: skewX(-8deg);
+    }
+
+    h1 .performance-mark {
+      color: var(--forest);
+      font-weight: 800;
+      text-shadow:
+        0 1px 0 rgba(248,248,245,.28),
+        0 18px 42px rgba(184,137,84,.14);
+    }
+
+    h1 .performance-mark::before {
+      inset: .05em -.12em .03em;
+      background:
+        linear-gradient(135deg, rgba(184,137,84,.20), rgba(184,137,84,0) 66%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      h1 .performance-mark {
+        color: #F8F8F5;
+      }
     }
 
     .hero-lines {
@@ -378,80 +468,63 @@ permalink: /premium/
       100% { stroke-dashoffset: -900; opacity: 0; }
     }
 
-    .identity-card {
-      position: relative;
-      align-self: end;
-      min-height: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 0 34px 0;
-      border: 0;
-      color: #F8F8F5;
-      background: transparent;
-      box-shadow: none;
-      overflow: visible;
-      isolation: auto;
-      transform: none;
-    }
-
-    .identity-card p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: rgba(248,248,245,.72);
-      font-weight: 700;
-      transform: none;
-      text-shadow: 0 2px 18px rgba(6,18,14,.32);
-    }
-
-    .identity-card strong {
-      position: relative;
-      z-index: 1;
-      display: block;
-      margin-bottom: 8px;
-      font-family: Sora, Inter, sans-serif;
-      font-size: 1.55rem;
-      line-height: 1.05;
-      letter-spacing: -.05em;
-      transform: none;
-      text-shadow: 0 2px 18px rgba(6,18,14,.34);
-    }
-
-    .identity-actions {
-      position: relative;
-      z-index: 1;
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-      transform: none;
+      gap: 12px;
+      margin-top: 38px;
     }
 
     .pill-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 0 12px;
-      border: 1px solid rgba(248,248,245,.24);
+      min-height: 52px;
+      padding: 0 22px;
+      border: 1px solid color-mix(in srgb, var(--bronze) 62%, var(--line));
       border-radius: 999px;
       color: #F8F8F5;
       text-decoration: none;
-      font-size: .82rem;
-      font-weight: 800;
-      background: rgba(6,18,14,.22);
+      font-size: .9rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--graphite), var(--forest));
       backdrop-filter: blur(12px);
+      box-shadow: 0 18px 44px rgba(22,59,46,.20), inset 0 0 0 1px rgba(248,248,245,.08);
     }
 
     .pill-link:hover {
-      background: #F8F8F5;
-      color: var(--forest);
+      transform: translateY(-2px);
+      color: #F8F8F5;
+    }
+
+    .pill-link.secondary {
+      color: color-mix(in srgb, var(--ink) 74%, transparent);
+      background: transparent;
+      box-shadow: none;
     }
 
     .section {
       position: relative;
       padding: 118px 0;
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: max(22px, calc((100% - var(--max)) / 2));
+      width: min(var(--max), calc(100% - 44px));
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+      opacity: .7;
+      transform: scaleX(.18);
+      transform-origin: left;
+      transition: transform 1.1s cubic-bezier(.2,.8,.2,1), opacity 1.1s ease;
+    }
+
+    .section.in-view::before {
+      opacity: 1;
+      transform: scaleX(1);
     }
 
     .section.sand {
@@ -862,6 +935,13 @@ permalink: /premium/
       letter-spacing: -.085em;
     }
 
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .contact-button {
       display: inline-flex;
       align-items: center;
@@ -878,9 +958,20 @@ permalink: /premium/
       transition: transform .28s ease, box-shadow .28s ease;
     }
 
+    .contact-button.secondary {
+      color: #F8F8F5;
+      background: rgba(248,248,245,.08);
+      box-shadow: none;
+      backdrop-filter: blur(14px);
+    }
+
     .contact-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 32px 80px rgba(0,0,0,.28);
+    }
+
+    .contact-button.secondary:hover {
+      box-shadow: inset 0 0 0 1px rgba(248,248,245,.18);
     }
 
     .modal {
@@ -950,6 +1041,11 @@ permalink: /premium/
       transform: none;
     }
 
+    .hero .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
     .parallax {
       transform: translateY(var(--shift, 0));
       transition: transform .08s linear;
@@ -990,31 +1086,61 @@ permalink: /premium/
       .nav-links { display: none; }
       .menu-toggle { display: inline-flex; }
       .brand span:last-child { display: none; }
-      .hero { padding-top: 112px; }
+      .hero {
+        min-height: auto;
+        padding: 122px 0 108px;
+      }
+      .hero-watermark {
+        top: 82px;
+        right: -46%;
+        width: 132vw;
+        height: 210px;
+        opacity: .12;
+        transform: rotate(-3deg);
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.85) 24%, rgba(0,0,0,.65) 70%, transparent 100%);
+      }
       .hero::before {
-        inset: 46% -36% auto auto;
-        width: 112vw;
-        aspect-ratio: 1.1;
-        opacity: .78;
+        inset: auto -28% 2% auto;
+        width: 74vw;
+        aspect-ratio: 1;
+        opacity: .16;
         background:
-          url("{{ profile.avatar_url | relative_url }}") center top 0 / auto 108% no-repeat,
-          linear-gradient(145deg, rgba(22,59,46,.96), rgba(48,92,70,.86));
+          radial-gradient(circle at 45% 38%, rgba(48,92,70,.30), transparent 58%);
+        box-shadow: none;
       }
       .hero::after {
-        inset: 46% -36% auto auto;
-        width: 112vw;
-        aspect-ratio: 1.1;
-        opacity: .78;
-        background:
-          linear-gradient(90deg, rgba(22,59,46,.94) 0%, rgba(22,59,46,.56) 44%, rgba(22,59,46,.06) 78%),
-          linear-gradient(180deg, transparent 42%, rgba(6,18,14,.36) 100%),
-          radial-gradient(circle at 30% 20%, rgba(231,223,200,.20), transparent 35%);
+        display: none;
       }
-      h1 { font-size: clamp(3.7rem, 18vw, 6.2rem); }
+      h1 {
+        max-width: 100%;
+        font-size: clamp(2.75rem, 13.2vw, 4.35rem);
+        line-height: .94;
+        letter-spacing: -.055em;
+      }
       .hero-grid { gap: 42px; }
-      .identity-card {
-        max-width: 320px;
-        padding: 40px 0 0;
+      .hero-lines {
+        margin-top: 26px;
+        gap: 10px;
+        font-size: 1rem;
+      }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: min(100%, 280px);
+        margin-top: 30px;
+      }
+      .pill-link {
+        width: 100%;
+        background: linear-gradient(135deg, #0D1E18, var(--forest));
+        box-shadow: 0 18px 42px rgba(22,59,46,.22), inset 0 0 0 1px rgba(248,248,245,.10);
+      }
+      .pill-link.secondary {
+        color: color-mix(in srgb, var(--ink) 72%, transparent);
+        background: color-mix(in srgb, var(--ivory) 52%, transparent);
+      }
+      #vision {
+        padding-top: 88px;
       }
       .section { padding: 78px 0; }
       .stats {
@@ -1041,6 +1167,7 @@ permalink: /premium/
   </style>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="cursor-halo" aria-hidden="true"></div>
   <div class="topography" aria-hidden="true">
     <svg viewBox="0 0 1440 1100" preserveAspectRatio="none">
@@ -1078,6 +1205,18 @@ permalink: /premium/
 
   <main>
     <section class="hero" id="top">
+      <svg class="hero-watermark" viewBox="0 0 900 290" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-40 20 C130 92 244 -18 390 44 C550 112 674 36 940 88"/>
+        <path d="M-36 38 C132 110 252 2 396 62 C554 130 684 54 940 106"/>
+        <path d="M-32 56 C134 128 260 22 402 80 C558 148 694 72 940 124"/>
+        <path d="M-28 74 C136 146 268 42 408 98 C562 166 704 90 940 142"/>
+        <path d="M-24 92 C138 164 276 62 414 116 C566 184 714 108 940 160"/>
+        <path d="M-20 110 C140 182 284 82 420 134 C570 202 724 126 940 178"/>
+        <path d="M-16 128 C142 200 292 102 426 152 C574 220 734 144 940 196"/>
+        <path d="M-12 146 C144 218 300 122 432 170 C578 238 744 162 940 214"/>
+        <path d="M-8 164 C146 236 308 142 438 188 C582 256 754 180 940 232"/>
+        <path d="M-4 182 C148 254 316 162 444 206 C586 274 764 198 940 250"/>
+      </svg>
       <svg class="animated-route" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
         <path d="M-20 78 C170 20 292 118 448 64 C632 0 742 120 902 62 C1084 -4 1204 96 1460 36"/>
       </svg>
@@ -1090,16 +1229,11 @@ permalink: /premium/
               <span>{{ line }}</span>
             {% endfor %}
           </div>
-        </div>
-        <aside class="identity-card reveal parallax" data-speed="0.04" aria-label="Identité">
-          <strong>{{ profile.name }}</strong>
-          <p>{{ profile.tagline }}</p>
-          <div class="identity-actions">
-            <a class="pill-link" href="mailto:{{ profile.email }}">Email</a>
-            <a class="pill-link" href="{{ profile.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="pill-link" href="{{ profile.pdf_url | relative_url }}" target="_blank" rel="noopener">PDF</a>
+          <div class="hero-actions reveal">
+            <a class="pill-link" href="{{ '/print/' | relative_url }}" target="_blank" rel="noopener">Voir le CV imprimable</a>
+            <a class="pill-link secondary" href="mailto:{{ profile.email }}">Me contacter</a>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
 
@@ -1223,7 +1357,10 @@ permalink: /premium/
     <section class="contact" id="contact">
       <div class="shell reveal">
         <h2>{{ premium.contact_title }}</h2>
-        <a class="contact-button" href="mailto:{{ profile.email }}">{{ premium.contact_button }}</a>
+        <div class="contact-actions">
+          <a class="contact-button" href="mailto:{{ profile.email }}">{{ premium.contact_button }}</a>
+          <a class="contact-button secondary" href="{{ '/print/' | relative_url }}" target="_blank" rel="noopener">Voir le CV imprimable</a>
+        </div>
       </div>
     </section>
   </main>
@@ -1255,6 +1392,14 @@ permalink: /premium/
 
     document.querySelectorAll('.reveal').forEach((item) => revealObserver.observe(item));
 
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.section').forEach((section) => sectionObserver.observe(section));
+
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting || entry.target.dataset.done) return;
@@ -1280,15 +1425,21 @@ permalink: /premium/
     document.querySelectorAll('[data-count]').forEach((item) => countObserver.observe(item));
 
     const parallaxItems = document.querySelectorAll('.parallax');
-    const updateParallax = () => {
+    const progressBar = document.querySelector('.scroll-progress');
+    const topography = document.querySelector('.topography');
+    const updateScrollEffects = () => {
       const y = window.scrollY;
+      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const progress = Math.min((y / maxScroll) * 100, 100);
+      if (progressBar) progressBar.style.setProperty('--scroll-progress', progress.toFixed(2));
+      if (topography) topography.style.setProperty('--topo-shift', `${Math.min(y * -0.035, 0)}px`);
       parallaxItems.forEach((item) => {
         const speed = Number(item.dataset.speed || 0);
         item.style.setProperty('--shift', `${y * speed}px`);
       });
     };
-    updateParallax();
-    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateScrollEffects();
+    window.addEventListener('scroll', updateScrollEffects, { passive: true });
 
     const menuButton = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
