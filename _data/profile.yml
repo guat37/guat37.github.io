@@ -11,12 +11,12 @@ website_label: "moncv.deleg.fr"
 website_url: "https://moncv.deleg.fr"
 avatar_url: "/assets/img/avatar.png"
 hero_avatar_url: "/assets/img/avatar-hero-natural.png"
-summary: "Directeur de projet informatique spécialisé dans les infrastructures, la cybersécurité, l’identité numérique et la transformation des systèmes d’information. J’interviens sur le cadrage, l’architecture, la coordination des parties prenantes et la mise en production de projets techniques à forts enjeux de disponibilité, de sécurité et de qualité de service."
+summary: "Mon parcours a démarré par l'administration systèmes et réseaux (2003-2010, support N1/N2), avant d'évoluer vers le pilotage de programmes IT à forte composante technique dans le secteur de la santé. Cette double culture — technique et projet — me permet de dialoguer efficacement avec les équipes techniques, les prestataires, les directions métiers et les acteurs sécurité, sans perdre la lisibilité projet ni la réalité du terrain : IAM/SSO, interopérabilité, cybersécurité, reconstruction d'établissement, intégration des lots techniques et pilotage multi-entités."
 
 highlights:
   - "+ de 8 années d'experience en chefferie de projet (projets techniques multi-établissements)"
   - "Expertise : Architecture, Systèmes, Réseaux, IAM/SSO, Reverse-proxy, cybersécurité"
-  - "Industrialisation, Automatisation, MCO/MCS, Intéropérabilité"
+  - "Industrialisation, Automatisation, MCO/MCS, Intéropérabilité, Support N1/N2"
 
 experience:
   - title: "Directeur de projet informatique"
@@ -28,13 +28,22 @@ experience:
       - "Référent technique : architecture, standardisation, documentation, mise en production."
       - "Interface étroite avec les équipes SSI (IAM, contrôle d’accès, conformité)."
 
-  - title: "Ingénieur de production — Systèmes & Réseaux"
-    period: "Avant 2017"
+  - title: "Production — Systèmes & Réseaux"
+    period: "2010 — 2017"
     place: "Secteur santé"
     pill: "MCO"
     bullets:
       - "Exploitation, supervision, gestion incidents/changements, amélioration continue."
       - "Renforcement sécurité et qualité de service (disponibilité, performance, durcissement)."
+
+  - title: "Administrateur Systèmes et Réseaux"
+    period: "2003 — 2010"
+    place: "Secteur santé"
+    pill: "Support N1/N2"
+    bullets:
+      - "Administration systèmes et réseaux au quotidien."
+      - "Support utilisateurs N1/N2."
+      - "Socle technique sur lequel s'est construite l’évolution vers le pilotage de programmes IT."
 
 skills:
   tech:
@@ -63,28 +72,28 @@ skills:
     - "Documentation & transmission"
 
 education:
-  - title: "Spécialiste Système et Réseaux"
+  - title: "Titre professionnel Spécialiste Systèmes et Réseaux"
     period: "2003"
     place: "ENI École informatique"
-    details: "Spécialiste Système et Réseaux"
+    details: ""
   - title: "BTS Informatique de gestion"
     period: "2001-2002"
-    place: "Lycée Paul-Louis Courier de Tours"
+    place: "Lycée Paul-Louis Courier, Tours"
     details: "Système et Réseaux"
 
 projects:
   - name: "Pilotage du programme CaRE"
     image: "/assets/img/projects/care.png"
-    meta: "KPI • Vulnérabilités • Trends"
-    description: "Pilotage du programme pour les entités du groupes (18 établissements), accompagnement à l'atteinte des objecifs du programme, mise en conformité de la sécurité informatique et enseignement des bonnes pratiques."
-    tags: ["ANS", "Cybersécurité", "KPI"]
+    meta: "18 établissements • Subventions • Résilience"
+    description: "Programme CaRE (cybersécurité et résilience des établissements de santé) : pilotage du Domaine 1 pour les 18 établissements sanitaires du groupe, incluant le montage et l'obtention des subventions associées."
+    tags: ["CaRE", "Cybersécurité", "Résilience"]
     link_label: ""
     link_url: ""
   - name: "Déploiement d'une infrastructure IT hospitalière"
     image: "/assets/img/projects/lv.jpg"
-    meta: "460 lits • 35 000 m²"
-    description: "Pilotage de la définition de l’architecture informatique d’un établissement multi-activités de 460 lits et 35 000 m², incluant l’analyse des besoins métiers, leur traduction technique et la validation des livrables de la maîtrise d’œuvre. Garantie du maintien en condition opérationnelle du système d’information pendant les phases de travaux et de transition."
-    tags: ["Archi", "Santé"]
+    meta: "Yvelines 78 • CFA • IT • Réseaux"
+    description: "Reconstruction d'un établissement de santé multi-activités (SMR, santé mentale, EHPAD) dans les Yvelines (78) : cadrage des besoins, intégration des lots techniques (CFA, IT, réseaux), coordination MOE / prestataires / DSI / SSI, de la conception à la mise en service."
+    tags: ["Architecture", "Santé", "Coordination"]
     link_label: ""
     link_url: ""
 
@@ -105,9 +114,9 @@ premium:
 
   vision_title: "Aligner les choix techniques, les risques et les objectifs métiers."
   vision:
-    - "Je pilote des projets SI à forte composante infrastructure, sécurité et exploitation dans des environnements où la continuité de service, la conformité et la qualité de production sont déterminantes."
-    - "Mon approche associe une compréhension opérationnelle des architectures systèmes et réseaux à une méthode de direction projet : cadrage, arbitrage, coordination des parties prenantes, suivi des risques, documentation et conduite de la mise en production."
-    - "J’interviens à l’interface des directions métiers, des équipes techniques, des acteurs SSI et des prestataires pour sécuriser les décisions, clarifier les dépendances et maintenir une trajectoire maîtrisée."
+    - "Mon parcours a démarré par l'administration systèmes et réseaux (2003-2010, support N1/N2), avant d'évoluer vers le pilotage de programmes IT à forte composante technique dans le secteur de la santé."
+    - "Cette double culture — technique et projet — me permet de dialoguer efficacement avec les équipes techniques, les prestataires, les directions métiers et les acteurs sécurité, sans perdre la lisibilité projet ni la réalité du terrain."
+    - "IAM/SSO, interopérabilité, cybersécurité, reconstruction d'établissement, intégration des lots techniques et pilotage multi-entités : l'enjeu reste le même, rendre les décisions techniques compréhensibles, maîtrisées et exploitables."
 
   journey_title: 'Un parcours construit entre exploitation, <span class="performance-mark">architecture</span> et direction de projets.'
   expertise_title: "Domaines d’intervention"
@@ -143,9 +152,9 @@ premium:
       label: "identités numériques intégrées dans une trajectoire IAM"
     - value: "18"
       count: 18
-      label: "établissements accompagnés dans le cadre du programme CaRE"
+      label: "établissements sanitaires accompagnés dans le cadre du programme CaRE, avec obtention des subventions associées"
 
   philosophy_quote: "Une infrastructure réussie est celle qui reste compréhensible, maîtrisée et fiable dans la durée."
-  philosophy_text: "Une conviction fondée sur la continuité de service, la maîtrise des risques, la qualité documentaire et la lisibilité des décisions."
+  philosophy_text: "Un parcours construit sur l'exploitation, l'architecture et le pilotage de programmes techniques dans des contextes exigeants."
   contact_title: "Échangeons sur vos enjeux IT."
   contact_button: "Prendre contact"

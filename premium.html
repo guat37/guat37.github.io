@@ -1186,6 +1186,7 @@ permalink: /premium/
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#vision">Vision</a>
       <a href="#parcours">Itinéraire</a>
+      <a href="#formation">Formation</a>
       <a href="#expertise">Expertise</a>
       <a href="#realisations">Réalisations</a>
       <a class="nav-cta" href="#contact">Contact</a>
@@ -1197,6 +1198,7 @@ permalink: /premium/
     <nav aria-label="Navigation mobile">
       <a href="#vision">Vision</a>
       <a href="#parcours">Itinéraire</a>
+      <a href="#formation">Formation</a>
       <a href="#expertise">Expertise</a>
       <a href="#realisations">Réalisations</a>
       <a href="#contact">Contact</a>
@@ -1270,6 +1272,29 @@ permalink: /premium/
                         <li>{{ bullet }}</li>
                       {% endfor %}
                     </ul>
+                  {% endif %}
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formation">
+      <div class="shell section-grid">
+        <div class="section-label">Formation</div>
+        <div>
+          <h2 class="display reveal">Formation</h2>
+          <div class="journey">
+            {% for item in profile.education %}
+              <article class="step reveal">
+                <div class="step-node">{{ forloop.index | prepend: '0' }}</div>
+                <div>
+                  <p class="step-period">{{ item.period }} · {{ item.place }}</p>
+                  <h3>{{ item.title }}</h3>
+                  {% if item.details and item.details != "" %}
+                    <p>{{ item.details }}</p>
                   {% endif %}
                 </div>
               </article>
