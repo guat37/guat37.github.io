@@ -622,27 +622,14 @@ permalink: /premium/
       background:
         linear-gradient(180deg,
           #F8F8F5 0%,
-          rgba(231, 223, 200, .36) 20%,
+          rgba(231, 223, 200, .34) 20%,
           rgba(14, 42, 34, .08) 50%,
-          rgba(231, 223, 200, .30) 80%,
+          rgba(231, 223, 200, .28) 80%,
           #F8F8F5 100%);
-    }
-
-    .cinematic-transition::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("/assets/images/topographic-lines.svg");
-      background-size: 1200px auto;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: .055;
-      pointer-events: none;
     }
 
     .cinematic-transition__inner {
       position: relative;
-      z-index: 1;
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
@@ -654,6 +641,7 @@ permalink: /premium/
       height: clamp(420px, 48vw, 720px);
       min-height: clamp(420px, 48vw, 720px);
       max-height: 760px;
+      margin: 0;
       overflow: hidden;
       color: var(--offwhite);
       background: var(--deep);
@@ -684,8 +672,8 @@ permalink: /premium/
       pointer-events: none;
       background:
         linear-gradient(90deg,
-          rgba(14, 42, 34, .78) 0%,
-          rgba(14, 42, 34, .46) 26%,
+          rgba(14, 42, 34, .76) 0%,
+          rgba(14, 42, 34, .44) 26%,
           rgba(14, 42, 34, .12) 54%,
           rgba(14, 42, 34, 0) 100%),
         linear-gradient(180deg,
@@ -704,6 +692,7 @@ permalink: /premium/
       bottom: clamp(1.5rem, 5vw, 4.5rem);
       z-index: 2;
       width: min(460px, calc(100% - 3rem));
+      margin: 0;
       padding: clamp(1.25rem, 2vw, 1.9rem);
       border: 1px solid rgba(248, 248, 245, .14);
       border-radius: 28px;
@@ -712,14 +701,18 @@ permalink: /premium/
       backdrop-filter: blur(12px);
     }
 
-    .cinematic-transition__statement p {
-      margin: 0;
+    .cinematic-transition__statement span {
+      display: block;
       color: #F8F8F5;
       font-family: "Space Grotesk", Inter, sans-serif;
       font-size: clamp(1.2rem, 1.9vw, 1.9rem);
       line-height: 1.16;
       font-weight: 650;
       letter-spacing: -0.035em;
+    }
+
+    .cinematic-transition + .section::before {
+      display: none;
     }
 
     .projects-grid {
@@ -1208,7 +1201,7 @@ permalink: /premium/
         object-position: 60% top;
       }
 
-      .cinematic-transition__statement p {
+      .cinematic-transition__statement span {
         font-size: clamp(1.2rem, 6vw, 1.62rem);
         line-height: 1.12;
       }
@@ -1358,15 +1351,15 @@ permalink: /premium/
 
     <section class="cinematic-transition" aria-label="Manifeste">
       <div class="cinematic-transition__inner">
-        <div class="cinematic-transition__media">
+        <figure class="cinematic-transition__media">
           <picture>
             <source srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" media="(min-width: 900px)" />
             <img src="{{ '/assets/images/greg-wide-cinematic.webp' | relative_url }}" alt="Portrait cinématographique de {{ profile.name }} dans un environnement sobre et contemporain" width="1600" height="900" loading="lazy" />
           </picture>
-          <div class="cinematic-transition__statement reveal">
-            <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
-          </div>
-        </div>
+          <figcaption class="cinematic-transition__statement reveal">
+            <span>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
