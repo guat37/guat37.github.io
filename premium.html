@@ -614,7 +614,7 @@ permalink: /premium/
 
     .expertise-card:hover span { transform: scaleX(1.6); }
 
-    .cinematic-transition {
+    .cinematic-manifest {
       position: relative;
       margin-block: clamp(5rem, 9vw, 8rem);
       padding-block: clamp(2rem, 4vw, 4rem);
@@ -628,14 +628,27 @@ permalink: /premium/
           #F8F8F5 100%);
     }
 
-    .cinematic-transition__inner {
+    .cinematic-manifest::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/assets/images/topographic-lines.svg");
+      background-size: 1200px auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: .045;
+      pointer-events: none;
+    }
+
+    .cinematic-manifest__inner {
       position: relative;
+      z-index: 1;
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
     }
 
-    .cinematic-transition__media {
+    .cinematic-manifest__media {
       position: relative;
       width: 100%;
       height: clamp(420px, 48vw, 720px);
@@ -649,14 +662,14 @@ permalink: /premium/
       box-shadow: 0 42px 100px rgba(14, 42, 34, .18);
     }
 
-    .cinematic-transition__media picture,
-    .cinematic-transition__media img {
+    .cinematic-manifest__media picture,
+    .cinematic-manifest__media img {
       display: block;
       width: 100%;
       height: 100%;
     }
 
-    .cinematic-transition__media img {
+    .cinematic-manifest__media img {
       object-fit: cover;
       object-position: 58% 28%;
       border: 0;
@@ -664,7 +677,7 @@ permalink: /premium/
       filter: saturate(.92) contrast(1.03);
     }
 
-    .cinematic-transition__media::before {
+    .cinematic-manifest__media::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -682,16 +695,16 @@ permalink: /premium/
           rgba(14, 42, 34, .10) 100%);
     }
 
-    .cinematic-transition__media::after {
+    .cinematic-manifest__media::after {
       content: none;
     }
 
-    .cinematic-transition__statement {
+    .cinematic-manifest__statement {
       position: absolute;
       left: clamp(1.5rem, 6vw, 6rem);
       bottom: clamp(1.5rem, 5vw, 4.5rem);
       z-index: 2;
-      width: min(460px, calc(100% - 3rem));
+      width: min(470px, calc(100% - 3rem));
       margin: 0;
       padding: clamp(1.25rem, 2vw, 1.9rem);
       border: 1px solid rgba(248, 248, 245, .14);
@@ -701,8 +714,28 @@ permalink: /premium/
       backdrop-filter: blur(12px);
     }
 
-    .cinematic-transition__statement span {
-      display: block;
+    .cinematic-manifest__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: .75rem;
+      color: rgba(231, 223, 200, .78);
+      font-size: .72rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 760;
+    }
+
+    .cinematic-manifest__eyebrow::after {
+      content: "";
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(90deg, #B9895A, transparent);
+    }
+
+    .cinematic-manifest__statement p {
+      margin: 0;
       color: #F8F8F5;
       font-family: "Space Grotesk", Inter, sans-serif;
       font-size: clamp(1.2rem, 1.9vw, 1.9rem);
@@ -711,7 +744,7 @@ permalink: /premium/
       letter-spacing: -0.035em;
     }
 
-    .cinematic-transition + .section::before {
+    .cinematic-manifest + .section::before {
       display: none;
     }
 
@@ -1044,33 +1077,33 @@ permalink: /premium/
         width: min(420px, 100%);
       }
 
-      .cinematic-transition {
+      .cinematic-manifest {
         margin-block: clamp(4rem, 8vw, 6rem);
         padding-block: 2rem;
       }
 
-      .cinematic-transition__media {
+      .cinematic-manifest__media {
         height: auto;
         min-height: 360px;
         max-height: none;
         overflow: visible;
       }
 
-      .cinematic-transition__media picture {
+      .cinematic-manifest__media picture {
         height: 360px;
         overflow: hidden;
         background: var(--deep);
       }
 
-      .cinematic-transition__media img {
+      .cinematic-manifest__media img {
         object-position: 61% 24%;
       }
 
-      .cinematic-transition__media::before {
+      .cinematic-manifest__media::before {
         height: 360px;
       }
 
-      .cinematic-transition__statement {
+      .cinematic-manifest__statement {
         position: relative;
         left: auto;
         bottom: auto;
@@ -1097,13 +1130,13 @@ permalink: /premium/
         width: min(48vw, 680px);
       }
 
-      .cinematic-transition__media {
+      .cinematic-manifest__media {
         height: min(560px, 46vw);
         min-height: 320px;
         max-height: 560px;
       }
 
-      .cinematic-transition__media img {
+      .cinematic-manifest__media img {
         object-position: 55% 24%;
       }
     }
@@ -1185,23 +1218,23 @@ permalink: /premium/
         gap: 18px;
       }
 
-      .cinematic-transition__media {
+      .cinematic-manifest__media {
         height: auto;
         background: var(--deep);
         min-height: 420px;
         max-height: none;
       }
 
-      .cinematic-transition__media picture,
-      .cinematic-transition__media::before {
+      .cinematic-manifest__media picture,
+      .cinematic-manifest__media::before {
         height: 440px;
       }
 
-      .cinematic-transition__media img {
+      .cinematic-manifest__media img {
         object-position: 60% top;
       }
 
-      .cinematic-transition__statement span {
+      .cinematic-manifest__statement p {
         font-size: clamp(1.2rem, 6vw, 1.62rem);
         line-height: 1.12;
       }
@@ -1349,15 +1382,16 @@ permalink: /premium/
       </div>
     </section>
 
-    <section class="cinematic-transition" aria-label="Manifeste">
-      <div class="cinematic-transition__inner">
-        <figure class="cinematic-transition__media">
+    <section class="cinematic-manifest" aria-label="Manifeste">
+      <div class="cinematic-manifest__inner">
+        <figure class="cinematic-manifest__media">
           <picture>
             <source srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" media="(min-width: 900px)" />
             <img src="{{ '/assets/images/greg-wide-cinematic.webp' | relative_url }}" alt="Portrait cinématographique de {{ profile.name }} dans un environnement sobre et contemporain" width="1600" height="900" loading="lazy" />
           </picture>
-          <figcaption class="cinematic-transition__statement reveal">
-            <span>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</span>
+          <figcaption class="cinematic-manifest__statement reveal">
+            <span class="cinematic-manifest__eyebrow">Manifeste</span>
+            <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
           </figcaption>
         </figure>
       </div>
