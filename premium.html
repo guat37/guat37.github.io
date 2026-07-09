@@ -622,9 +622,9 @@ permalink: /premium/
       background:
         linear-gradient(180deg,
           #F8F8F5 0%,
-          rgba(231, 223, 200, .42) 18%,
-          rgba(14, 42, 34, .10) 50%,
-          rgba(231, 223, 200, .34) 82%,
+          rgba(231, 223, 200, .36) 20%,
+          rgba(14, 42, 34, .08) 50%,
+          rgba(231, 223, 200, .30) 80%,
           #F8F8F5 100%);
     }
 
@@ -657,7 +657,8 @@ permalink: /premium/
       overflow: hidden;
       color: var(--offwhite);
       background: var(--deep);
-      box-shadow: 0 42px 100px rgba(14, 42, 34, .22);
+      border: 0;
+      box-shadow: 0 42px 100px rgba(14, 42, 34, .18);
     }
 
     .cinematic-transition__media picture,
@@ -670,13 +671,16 @@ permalink: /premium/
     .cinematic-transition__media img {
       object-fit: cover;
       object-position: 58% 28%;
+      border: 0;
+      display: block;
       filter: saturate(.92) contrast(1.03);
     }
 
-    .cinematic-transition__media::after {
+    .cinematic-transition__media::before {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 1;
       pointer-events: none;
       background:
         linear-gradient(90deg,
@@ -685,9 +689,13 @@ permalink: /premium/
           rgba(14, 42, 34, .12) 54%,
           rgba(14, 42, 34, 0) 100%),
         linear-gradient(180deg,
-          rgba(14, 42, 34, .10) 0%,
-          rgba(14, 42, 34, 0) 35%,
-          rgba(14, 42, 34, .18) 100%);
+          rgba(14, 42, 34, .06) 0%,
+          rgba(14, 42, 34, 0) 42%,
+          rgba(14, 42, 34, .10) 100%);
+    }
+
+    .cinematic-transition__media::after {
+      content: none;
     }
 
     .cinematic-transition__statement {
@@ -700,7 +708,7 @@ permalink: /premium/
       border: 1px solid rgba(248, 248, 245, .14);
       border-radius: 28px;
       background: rgba(14, 42, 34, .76);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
       backdrop-filter: blur(12px);
     }
 
@@ -1065,7 +1073,7 @@ permalink: /premium/
         object-position: 61% 24%;
       }
 
-      .cinematic-transition__media::after {
+      .cinematic-transition__media::before {
         height: 360px;
       }
 
@@ -1192,7 +1200,7 @@ permalink: /premium/
       }
 
       .cinematic-transition__media picture,
-      .cinematic-transition__media::after {
+      .cinematic-transition__media::before {
         height: 440px;
       }
 
