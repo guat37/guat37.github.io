@@ -611,68 +611,67 @@ permalink: /premium/
 
     .expertise-card:hover span { transform: scaleX(1.6); }
 
-    .cinematic-section {
+    .cinematic-breakout {
       position: relative;
-      width: min(1180px, calc(100% - 2rem));
-      margin: clamp(5rem, 9vw, 8rem) auto;
-      display: grid;
-      gap: clamp(1rem, 2.5vw, 1.6rem);
+      margin-block: clamp(5rem, 8vw, 8rem);
     }
 
-    .cinematic-visual {
+    .cinematic-breakout__media {
       position: relative;
-      border-radius: 36px;
-      aspect-ratio: 21 / 9;
-      min-height: 360px;
-      max-height: 680px;
+      width: 100vw;
+      height: clamp(380px, 48vw, 720px);
+      min-height: clamp(380px, 48vw, 720px);
+      max-height: 760px;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       overflow: hidden;
       color: var(--offwhite);
       background: var(--deep);
     }
 
-    .cinematic-visual picture,
-    .cinematic-visual img {
+    .cinematic-breakout__media picture,
+    .cinematic-breakout__media img {
       display: block;
       width: 100%;
       height: 100%;
     }
 
-    .cinematic-visual img {
+    .cinematic-breakout__media img {
       object-fit: cover;
       object-position: 58% 28%;
       filter: saturate(.92) contrast(1.03);
     }
 
-    .cinematic-visual::after {
+    .cinematic-breakout__media::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(14, 42, 34, .86) 0%, rgba(14, 42, 34, .46) 34%, rgba(14, 42, 34, .05) 72%);
+      background: linear-gradient(90deg, rgba(14,42,34,.62) 0%, rgba(14,42,34,.28) 28%, rgba(14,42,34,.06) 58%, rgba(14,42,34,0) 100%);
     }
 
-    .cinematic-statement {
-      position: relative;
-      z-index: 1;
-      width: min(760px, 100%);
-      max-width: none;
-      padding: clamp(1.25rem, 2.4vw, 2rem);
-      border: 1px solid rgba(248, 248, 245, .14);
-      border-radius: 28px;
-      color: var(--offwhite);
-      background:
-        linear-gradient(135deg, rgba(18, 60, 47, .98), rgba(14, 42, 34, .96)),
-        url("/assets/images/topographic-lines.svg") right center / 52% auto no-repeat;
-      box-shadow: 0 22px 58px rgba(14, 42, 34, .16);
+    .cinematic-breakout__statement {
+      position: absolute;
+      left: clamp(1.25rem, 3vw, 3rem);
+      bottom: clamp(1.25rem, 3vw, 3rem);
+      z-index: 2;
+      width: min(440px, calc(100% - 2rem));
+      padding: clamp(1.1rem, 2vw, 1.8rem);
+      border: 1px solid rgba(248,248,245,.12);
+      border-radius: 24px;
+      background: rgba(14, 42, 34, .78);
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
     }
 
-    .cinematic-statement p {
+    .cinematic-breakout__statement p {
       margin: 0;
+      color: #F8F8F5;
       font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(1.25rem, 2vw, 2rem);
-      line-height: 1.16;
+      font-size: clamp(1.15rem, 1.9vw, 1.85rem);
+      line-height: 1.18;
       font-weight: 650;
-      letter-spacing: 0;
+      letter-spacing: -0.03em;
     }
 
     .projects-grid {
@@ -723,7 +722,7 @@ permalink: /premium/
       font-weight: 500;
     }
 
-    .stats {
+    .metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
@@ -735,7 +734,7 @@ permalink: /premium/
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 1rem;
+      gap: .45rem;
       padding: 22px;
       border: 1px solid rgba(18, 60, 47, .12);
       border-radius: var(--radius);
@@ -754,8 +753,8 @@ permalink: /premium/
       display: block;
       color: var(--forest);
       font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(2rem, 3.1vw, 3.25rem);
-      line-height: .95;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1;
       overflow-wrap: normal;
       white-space: nowrap;
       font-weight: 800;
@@ -764,8 +763,9 @@ permalink: /premium/
     .metric-label {
       display: block;
       color: rgba(31, 36, 33, .70);
+      font-size: .98rem;
       font-weight: 800;
-      line-height: 1.28;
+      line-height: 1.35;
       overflow-wrap: normal;
       word-break: normal;
     }
@@ -889,7 +889,7 @@ permalink: /premium/
       }
 
       .card-grid,
-      .stats {
+      .metrics-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -970,20 +970,35 @@ permalink: /premium/
         width: min(420px, 100%);
       }
 
-      .cinematic-section {
-        width: min(100%, calc(100% - 1.5rem));
+      .cinematic-breakout__media {
+        height: auto;
+        min-height: 340px;
+        max-height: none;
+        overflow: visible;
       }
 
-      .cinematic-visual {
-        width: min(100%, calc(100% - 1.5rem));
-        aspect-ratio: 16 / 10;
-        width: 100%;
-        min-height: 330px;
-        border-radius: 28px;
+      .cinematic-breakout__media picture {
+        height: 340px;
+        overflow: hidden;
+        background: var(--deep);
       }
 
-      .cinematic-visual img {
-        object-position: 58% 24%;
+      .cinematic-breakout__media img {
+        object-position: 60% 24%;
+      }
+
+      .cinematic-breakout__media::after {
+        height: 340px;
+      }
+
+      .cinematic-breakout__statement {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: auto;
+        margin: 1rem 1rem 0;
+        background: #0E2A22;
+        backdrop-filter: none;
       }
 
     }
@@ -1003,13 +1018,13 @@ permalink: /premium/
         width: min(48vw, 680px);
       }
 
-      .cinematic-visual {
-        aspect-ratio: 2.25 / 1;
+      .cinematic-breakout__media {
+        height: min(560px, 46vw);
         min-height: 320px;
         max-height: 560px;
       }
 
-      .cinematic-visual img {
+      .cinematic-breakout__media img {
         object-position: 55% 24%;
       }
     }
@@ -1087,7 +1102,7 @@ permalink: /premium/
       }
 
       .card-grid,
-      .stats {
+      .metrics-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1096,19 +1111,25 @@ permalink: /premium/
         gap: 18px;
       }
 
-      .cinematic-visual {
+      .cinematic-breakout__media {
+        height: auto;
         background: var(--deep);
-        aspect-ratio: 4 / 5;
         min-height: 420px;
+        max-height: none;
       }
 
-      .cinematic-visual img {
+      .cinematic-breakout__media picture,
+      .cinematic-breakout__media::after {
+        height: 420px;
+      }
+
+      .cinematic-breakout__media img {
         object-position: 60% top;
       }
 
-      .cinematic-statement p {
-        font-size: clamp(1.25rem, 7vw, 1.65rem);
-        line-height: 1.08;
+      .cinematic-breakout__statement p {
+        font-size: clamp(1.2rem, 6vw, 1.62rem);
+        line-height: 1.12;
       }
     }
 
@@ -1254,15 +1275,15 @@ permalink: /premium/
       </div>
     </section>
 
-    <section class="cinematic-section" aria-label="Respiration visuelle cinématographique">
-      <div class="cinematic-visual">
+    <section class="cinematic-breakout" aria-label="Respiration visuelle cinématographique">
+      <div class="cinematic-breakout__media">
         <picture>
-          <source media="(min-width: 900px)" srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" />
+          <source srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" media="(min-width: 900px)" />
           <img src="{{ '/assets/images/greg-wide-cinematic.webp' | relative_url }}" alt="Portrait cinématographique de {{ profile.name }} dans un environnement sobre et contemporain" width="1600" height="900" loading="lazy" />
         </picture>
-      </div>
-      <div class="cinematic-statement reveal">
-        <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
+        <div class="cinematic-breakout__statement reveal">
+          <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
+        </div>
       </div>
     </section>
 
@@ -1332,7 +1353,7 @@ permalink: /premium/
         <div class="section-label">Chiffres clés</div>
         <div>
           <h2 class="display reveal">Repères d'expérience.</h2>
-          <div class="stats">
+          <div class="metrics-grid">
             <div class="metric-card reveal">
               <span class="metric-value">20+</span>
               <span class="metric-label">ans d'expérience</span>
