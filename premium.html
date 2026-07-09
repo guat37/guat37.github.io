@@ -2,7 +2,6 @@
 permalink: /premium/
 ---
 {% assign profile = site.data.profile %}
-{% assign pdf_url = profile.pdf_url | default: '/cv.pdf' %}
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'fr' }}">
 <head>
@@ -367,7 +366,7 @@ permalink: /premium/
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: .85rem;
+      gap: 1rem 1.2rem;
       margin-top: clamp(1.6rem, 3vh, 2.2rem);
     }
 
@@ -390,16 +389,21 @@ permalink: /premium/
       transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
     }
 
-    .hero-actions .btn-secondary {
-      color: #004634;
-      border: 1px solid rgba(0, 70, 52, .22);
-      background: rgba(248, 248, 245, .72);
-      backdrop-filter: blur(8px);
-      box-shadow: none;
-    }
-
     .hero-actions .btn:hover {
       transform: translateY(-1px);
+    }
+
+    .hero-link {
+      color: rgba(0, 70, 52, .72);
+      text-decoration: none;
+      font-weight: 650;
+      border-bottom: 1px solid rgba(185, 137, 90, .45);
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .hero-link:hover {
+      color: #004634;
+      border-bottom-color: #B9895A;
     }
 
     .text-link {
@@ -1153,19 +1157,15 @@ permalink: /premium/
         width: 100%;
       }
 
-      .button,
-      .text-link {
-        width: 100%;
-        min-width: 0;
-      }
-
       .hero-actions .btn {
         width: 100%;
       }
 
-      .text-link {
+      .hero-link {
         display: inline-flex;
         justify-content: center;
+        width: 100%;
+        min-width: 0;
       }
 
       .hero-stage {
@@ -1268,7 +1268,7 @@ permalink: /premium/
           <p class="hero-signature reveal">Transformer la complexité en trajectoire.</p>
           <div class="hero-actions reveal">
             <a class="btn btn-primary" href="#contact">Me contacter</a>
-            <a class="btn btn-secondary" href="{{ pdf_url | relative_url }}">Télécharger le CV</a>
+            <a class="hero-link" href="#trajectoire">Découvrir la trajectoire</a>
           </div>
         </div>
       </div>
@@ -1470,7 +1470,6 @@ permalink: /premium/
           {% if profile.linkedin_url %}
             <a href="{{ profile.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
           {% endif %}
-          <a href="{{ pdf_url | relative_url }}">Télécharger le CV</a>
           <a href="{{ '/print/' | relative_url }}">Version imprimable</a>
         </div>
       </div>
