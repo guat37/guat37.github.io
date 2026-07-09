@@ -285,8 +285,7 @@ permalink: /premium/
 
     .hero-inner > *,
     .vision-layout > *,
-    .projects-grid > *,
-    .contact-layout > * {
+    .projects-grid > * {
       min-width: 0;
     }
 
@@ -611,67 +610,104 @@ permalink: /premium/
 
     .expertise-card:hover span { transform: scaleX(1.6); }
 
-    .cinematic-breakout {
+    .cinematic-transition {
       position: relative;
-      margin-block: clamp(5rem, 8vw, 8rem);
+      margin-block: clamp(5rem, 9vw, 8rem);
+      padding-block: clamp(2rem, 4vw, 4rem);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg,
+          #F8F8F5 0%,
+          rgba(231, 223, 200, .42) 18%,
+          rgba(14, 42, 34, .10) 50%,
+          rgba(231, 223, 200, .34) 82%,
+          #F8F8F5 100%);
     }
 
-    .cinematic-breakout__media {
+    .cinematic-transition::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/assets/images/topographic-lines.svg");
+      background-size: 1200px auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: .055;
+      pointer-events: none;
+    }
+
+    .cinematic-transition__inner {
       position: relative;
+      z-index: 1;
       width: 100vw;
-      height: clamp(380px, 48vw, 720px);
-      min-height: clamp(380px, 48vw, 720px);
-      max-height: 760px;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
+    }
+
+    .cinematic-transition__media {
+      position: relative;
+      width: 100%;
+      height: clamp(420px, 48vw, 720px);
+      min-height: clamp(420px, 48vw, 720px);
+      max-height: 760px;
       overflow: hidden;
       color: var(--offwhite);
       background: var(--deep);
+      box-shadow: 0 42px 100px rgba(14, 42, 34, .22);
     }
 
-    .cinematic-breakout__media picture,
-    .cinematic-breakout__media img {
+    .cinematic-transition__media picture,
+    .cinematic-transition__media img {
       display: block;
       width: 100%;
       height: 100%;
     }
 
-    .cinematic-breakout__media img {
+    .cinematic-transition__media img {
       object-fit: cover;
       object-position: 58% 28%;
       filter: saturate(.92) contrast(1.03);
     }
 
-    .cinematic-breakout__media::after {
+    .cinematic-transition__media::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(14,42,34,.62) 0%, rgba(14,42,34,.28) 28%, rgba(14,42,34,.06) 58%, rgba(14,42,34,0) 100%);
+      background:
+        linear-gradient(90deg,
+          rgba(14, 42, 34, .78) 0%,
+          rgba(14, 42, 34, .46) 26%,
+          rgba(14, 42, 34, .12) 54%,
+          rgba(14, 42, 34, 0) 100%),
+        linear-gradient(180deg,
+          rgba(14, 42, 34, .10) 0%,
+          rgba(14, 42, 34, 0) 35%,
+          rgba(14, 42, 34, .18) 100%);
     }
 
-    .cinematic-breakout__statement {
+    .cinematic-transition__statement {
       position: absolute;
-      left: clamp(1.25rem, 3vw, 3rem);
-      bottom: clamp(1.25rem, 3vw, 3rem);
+      left: clamp(1.5rem, 6vw, 6rem);
+      bottom: clamp(1.5rem, 5vw, 4.5rem);
       z-index: 2;
-      width: min(440px, calc(100% - 2rem));
-      padding: clamp(1.1rem, 2vw, 1.8rem);
-      border: 1px solid rgba(248,248,245,.12);
-      border-radius: 24px;
-      background: rgba(14, 42, 34, .78);
-      box-shadow: 0 20px 60px rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
+      width: min(460px, calc(100% - 3rem));
+      padding: clamp(1.25rem, 2vw, 1.9rem);
+      border: 1px solid rgba(248, 248, 245, .14);
+      border-radius: 28px;
+      background: rgba(14, 42, 34, .76);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+      backdrop-filter: blur(12px);
     }
 
-    .cinematic-breakout__statement p {
+    .cinematic-transition__statement p {
       margin: 0;
       color: #F8F8F5;
       font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(1.15rem, 1.9vw, 1.85rem);
-      line-height: 1.18;
+      font-size: clamp(1.2rem, 1.9vw, 1.9rem);
+      line-height: 1.16;
       font-weight: 650;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
 
     .projects-grid {
@@ -797,65 +833,103 @@ permalink: /premium/
       background: var(--bronze);
     }
 
-    .contact {
-      padding: clamp(76px, 11vw, 132px) 0;
-      color: var(--offwhite);
-      background: var(--deep);
+    .contact-section {
+      padding-block: clamp(5rem, 9vw, 8rem);
     }
 
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 32px;
-      align-items: end;
+    .contact-card {
+      position: relative;
+      width: min(920px, calc(100% - 2rem));
+      margin-inline: auto;
+      padding: clamp(2rem, 5vw, 4rem);
+      overflow: hidden;
+      border-radius: 36px;
+      color: #F8F8F5;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(185,137,90,.16), transparent 34%),
+        linear-gradient(145deg, #123C2F 0%, #0E2A22 100%);
+      box-shadow: 0 42px 100px rgba(14, 42, 34, .22);
     }
 
-    .contact h2 {
-      max-width: 760px;
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/assets/images/topographic-lines.svg");
+      background-size: 900px auto;
+      background-position: right center;
+      background-repeat: no-repeat;
+      opacity: .09;
+      pointer-events: none;
+    }
+
+    .contact-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-eyebrow {
+      margin: 0 0 1rem;
+      color: var(--bronze);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .contact-card h2 {
+      max-width: 720px;
       margin: 0;
-      color: var(--offwhite);
-      font-size: clamp(2.5rem, 6vw, 6rem);
-      line-height: .94;
+      color: #F8F8F5;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: .95;
+      letter-spacing: -0.06em;
     }
 
-    .contact-actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      justify-content: end;
-      gap: 14px;
-      width: min(560px, 100%);
+    .contact-lead {
+      max-width: 620px;
+      margin: 1.25rem 0 0;
+      color: rgba(248, 248, 245, .78);
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      line-height: 1.55;
     }
 
-    .contact-actions > .button:first-child {
-      grid-column: 1 / -1;
+    .contact-email {
+      display: inline-flex;
+      margin-top: clamp(1.6rem, 3vw, 2.4rem);
+      padding: .95rem 1.35rem;
+      border-radius: 999px;
+      color: #0E2A22;
+      background: #F8F8F5;
+      text-decoration: none;
+      font-weight: 760;
+      transition: transform .22s ease, box-shadow .22s ease;
     }
 
-    .contact .button {
-      border-color: rgba(248, 248, 245, .18);
-      color: var(--deep);
-      background: var(--offwhite);
-      box-shadow: none;
-      min-height: 68px;
-      padding-inline: 22px;
-      border-radius: 28px;
-      justify-content: flex-start;
-      text-align: left;
+    .contact-email:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .18);
     }
 
-    .contact .button.secondary {
-      color: var(--offwhite);
-      background: rgba(248, 248, 245, .08);
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem 1.2rem;
+      margin-top: 1.4rem;
     }
 
-    .contact .button.tertiary {
-      color: rgba(248, 248, 245, .76);
-      background: transparent;
-      text-decoration-color: rgba(248, 248, 245, .48);
-      min-height: auto;
-      padding-inline: 0;
-      border-radius: 0;
-      box-shadow: none;
-      grid-column: 1 / -1;
+    .contact-links a {
+      color: rgba(248, 248, 245, .72);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(185, 137, 90, .45);
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .contact-links a:hover {
+      color: #F8F8F5;
+      border-bottom-color: #B9895A;
     }
 
     .reveal {
@@ -893,17 +967,12 @@ permalink: /premium/
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .section-grid,
-      .contact-layout {
+      .section-grid {
         grid-template-columns: 1fr;
       }
 
       .section-label {
         position: static;
-      }
-
-      .contact-actions {
-        justify-content: flex-start;
       }
     }
 
@@ -970,28 +1039,33 @@ permalink: /premium/
         width: min(420px, 100%);
       }
 
-      .cinematic-breakout__media {
+      .cinematic-transition {
+        margin-block: clamp(4rem, 8vw, 6rem);
+        padding-block: 2rem;
+      }
+
+      .cinematic-transition__media {
         height: auto;
-        min-height: 340px;
+        min-height: 360px;
         max-height: none;
         overflow: visible;
       }
 
-      .cinematic-breakout__media picture {
-        height: 340px;
+      .cinematic-transition__media picture {
+        height: 360px;
         overflow: hidden;
         background: var(--deep);
       }
 
-      .cinematic-breakout__media img {
-        object-position: 60% 24%;
+      .cinematic-transition__media img {
+        object-position: 61% 24%;
       }
 
-      .cinematic-breakout__media::after {
-        height: 340px;
+      .cinematic-transition__media::after {
+        height: 360px;
       }
 
-      .cinematic-breakout__statement {
+      .cinematic-transition__statement {
         position: relative;
         left: auto;
         bottom: auto;
@@ -1018,13 +1092,13 @@ permalink: /premium/
         width: min(48vw, 680px);
       }
 
-      .cinematic-breakout__media {
+      .cinematic-transition__media {
         height: min(560px, 46vw);
         min-height: 320px;
         max-height: 560px;
       }
 
-      .cinematic-breakout__media img {
+      .cinematic-transition__media img {
         object-position: 55% 24%;
       }
     }
@@ -1073,8 +1147,7 @@ permalink: /premium/
         font-size: .96rem;
       }
 
-      .hero-actions,
-      .contact-actions {
+      .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
         width: 100%;
@@ -1111,23 +1184,23 @@ permalink: /premium/
         gap: 18px;
       }
 
-      .cinematic-breakout__media {
+      .cinematic-transition__media {
         height: auto;
         background: var(--deep);
         min-height: 420px;
         max-height: none;
       }
 
-      .cinematic-breakout__media picture,
-      .cinematic-breakout__media::after {
-        height: 420px;
+      .cinematic-transition__media picture,
+      .cinematic-transition__media::after {
+        height: 440px;
       }
 
-      .cinematic-breakout__media img {
+      .cinematic-transition__media img {
         object-position: 60% top;
       }
 
-      .cinematic-breakout__statement p {
+      .cinematic-transition__statement p {
         font-size: clamp(1.2rem, 6vw, 1.62rem);
         line-height: 1.12;
       }
@@ -1275,14 +1348,16 @@ permalink: /premium/
       </div>
     </section>
 
-    <section class="cinematic-breakout" aria-label="Respiration visuelle cinématographique">
-      <div class="cinematic-breakout__media">
-        <picture>
-          <source srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" media="(min-width: 900px)" />
-          <img src="{{ '/assets/images/greg-wide-cinematic.webp' | relative_url }}" alt="Portrait cinématographique de {{ profile.name }} dans un environnement sobre et contemporain" width="1600" height="900" loading="lazy" />
-        </picture>
-        <div class="cinematic-breakout__statement reveal">
-          <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
+    <section class="cinematic-transition" aria-label="Manifeste">
+      <div class="cinematic-transition__inner">
+        <div class="cinematic-transition__media">
+          <picture>
+            <source srcset="{{ '/assets/images/greg-wide-cinematic-1200.webp' | relative_url }}" media="(min-width: 900px)" />
+            <img src="{{ '/assets/images/greg-wide-cinematic.webp' | relative_url }}" alt="Portrait cinématographique de {{ profile.name }} dans un environnement sobre et contemporain" width="1600" height="900" loading="lazy" />
+          </picture>
+          <div class="cinematic-transition__statement reveal">
+            <p>La technologie n'a de valeur que lorsqu'elle rend l'organisation plus claire, plus sûre et plus fluide.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1385,16 +1460,18 @@ permalink: /premium/
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="shell contact-layout">
-        <h2 class="reveal">Construisons la prochaine trajectoire.</h2>
-        <div class="contact-actions reveal">
-          <a class="button" href="mailto:{{ profile.email }}">Me contacter</a>
+    <section class="contact-section" id="contact">
+      <div class="contact-card reveal">
+        <p class="section-eyebrow">Contact</p>
+        <h2>Construisons la prochaine trajectoire.</h2>
+        <p class="contact-lead">Une discussion vaut souvent mieux qu'un long CV. Échangeons sur vos enjeux, vos contraintes et la trajectoire à construire.</p>
+        <a class="contact-email" href="mailto:{{ profile.email }}">Me contacter</a>
+        <div class="contact-links">
           {% if profile.linkedin_url %}
-            <a class="button secondary" href="{{ profile.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="{{ profile.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a>
           {% endif %}
-          <a class="button secondary" href="{{ pdf_url | relative_url }}">Télécharger le CV</a>
-          <a class="button tertiary" href="{{ '/print/' | relative_url }}">Version imprimable</a>
+          <a href="{{ pdf_url | relative_url }}">Télécharger le CV</a>
+          <a href="{{ '/print/' | relative_url }}">Version imprimable</a>
         </div>
       </div>
     </section>
