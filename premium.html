@@ -479,7 +479,7 @@ permalink: /premium/
 
     .vision-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      grid-template-columns: minmax(0, 1fr) minmax(400px, 560px);
       gap: clamp(28px, 5vw, 56px);
       align-items: center;
       margin-top: 30px;
@@ -490,13 +490,13 @@ permalink: /premium/
     }
 
     .vision-portrait {
-      width: min(420px, 100%);
-      aspect-ratio: 4 / 5;
+      width: min(560px, 100%);
+      aspect-ratio: 5 / 3;
       overflow: hidden;
       justify-self: end;
       border-radius: 32px;
       background: var(--sand);
-      box-shadow: 0 30px 70px rgba(14, 42, 34, .18);
+      box-shadow: 0 30px 70px rgba(14, 42, 34, .16);
     }
 
     .vision-portrait img {
@@ -1074,7 +1074,7 @@ permalink: /premium/
 
       .vision-portrait {
         justify-self: start;
-        width: min(420px, 100%);
+        width: 100%;
       }
 
       .cinematic-manifest {
@@ -1316,8 +1316,8 @@ permalink: /premium/
           <div class="vision-layout">
             <p class="lead reveal">Un projet informatique critique ne se limite pas à une livraison technique. Il engage des usages, des risques, des organisations et des décisions durables. Mon rôle consiste à clarifier les enjeux, structurer la trajectoire, sécuriser l'exécution et accompagner les parties prenantes jusqu'à l'appropriation.</p>
             <picture class="vision-portrait reveal">
-              <source media="(min-width: 720px)" srcset="{{ '/assets/images/greg-about-editorial-800.webp' | relative_url }}" />
-              <img src="{{ '/assets/images/greg-about-editorial.webp' | relative_url }}" alt="Portrait éditorial de {{ profile.name }} dans un environnement professionnel" width="800" height="1000" loading="lazy" />
+              <source media="(max-width: 719px)" srcset="{{ '/assets/images/greg-vision-collaboration-900.webp' | relative_url }}" />
+              <img src="{{ '/assets/images/greg-vision-collaboration.webp' | relative_url }}" alt="Échange autour d’un document projet dans un environnement professionnel contemporain" width="1622" height="970" loading="lazy" />
             </picture>
           </div>
         </div>
